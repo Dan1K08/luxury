@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luxury Privé — Elite Concierge & Lifestyle Management</title>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+<!-- End Google Analytics -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Cinzel:wght@400;500;600&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C9A84C;
+    --gold-light: #E8C97A;
+    --gold-pale: #F5E6B8;
+    --black: #080808;
+    --dark: #0F0F0F;
+    --dark2: #141414;
+    --gray: #888;
+    --white: #F9F5EE;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* ── CURSOR ── */
+  body { cursor: none; }
+  #cursor {
+    position: fixed; width: 8px; height: 8px;
+    background: var(--gold); border-radius: 50%;
+    pointer-events: none; z-index: 9999;
+    transform: translate(-50%,-50%);
+    transition: width .2s, height .2s, opacity .2s;
+    mix-blend-mode: difference;
+  }
+  #cursor-ring {
+    position: fixed; width: 36px; height: 36px;
+    border: 1px solid rgba(201,168,76,.4); border-radius: 50%;
+    pointer-events: none; z-index: 9998;
+    transform: translate(-50%,-50%);
+    transition: all .12s ease-out;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 28px 60px;
+    transition: background .4s, padding .4s;
+  }
+  nav.scrolled {
+    background: rgba(8,8,8,.92);
+    backdrop-filter: blur(20px);
+    padding: 18px 60px;
+    border-bottom: 1px solid rgba(201,168,76,.15);
+  }
+  .nav-logo {
+    font-family: 'Cinzel', serif;
+    font-size: 13px; letter-spacing: .35em;
+    color: var(--gold); text-decoration: none;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .nav-logo svg { width: 22px; height: 22px; }
+  .nav-links { display: flex; gap: 44px; list-style: none; }
+  .nav-links a {
+    font-family: 'Jost', sans-serif; font-weight: 200;
+    font-size: 11px; letter-spacing: .25em; text-transform: uppercase;
+    color: rgba(249,245,238,.6); text-decoration: none;
+    transition: color .3s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-cta {
+    font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: .2em;
+    color: var(--gold); border: 1px solid rgba(201,168,76,.5);
+    padding: 10px 22px; text-decoration: none;
+    transition: all .3s;
+  }
+  .nav-cta:hover { background: var(--gold); color: var(--black); }
+
+  /* ── HERO ── */
+  #hero {
+    position: relative; min-height: 100vh;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background: 
+      radial-gradient(ellipse 80% 60% at 50% 40%, rgba(201,168,76,.06) 0%, transparent 70%),
+      linear-gradient(180deg, rgba(8,8,8,0) 0%, rgba(8,8,8,.7) 100%);
+    z-index: 1;
+  }
+  /* Luxury photo grid behind hero */
+  .hero-photo-grid {
+    position: absolute; inset: 0; z-index: 0;
+    display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2px; opacity: .18;
+  }
+  .hero-photo-grid div {
+    background-size: cover; background-position: center;
+    filter: grayscale(30%);
+  }
+  /* Using gradient art as placeholders for luxury imagery */
+  .hp1 { background: linear-gradient(135deg, #1a1205 0%, #2d2010 40%, #1a1205 100%),
+    url('https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=600&q=80') center/cover; }
+  .hp2 { background: url('https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=600&q=80') center/cover; }
+  .hp3 { background: url('https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&q=80') center/cover; }
+
+  .hero-content {
+    position: relative; z-index: 2;
+    text-align: center; max-width: 900px; padding: 0 40px;
+  }
+  .hero-eyebrow {
+    font-family: 'Jost', sans-serif; font-weight: 200;
+    font-size: 10px; letter-spacing: .5em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 32px;
+    display: flex; align-items: center; justify-content: center; gap: 20px;
+    opacity: 0; animation: fadeUp .8s .2s forwards;
+  }
+  .hero-eyebrow::before, .hero-eyebrow::after {
+    content: ''; display: block; width: 40px; height: 1px; background: var(--gold); opacity: .5;
+  }
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif; font-weight: 300;
+    font-size: clamp(52px, 8vw, 110px); line-height: .92;
+    color: var(--white); margin-bottom: 12px;
+    opacity: 0; animation: fadeUp .9s .4s forwards;
+  }
+  .hero-title em {
+    font-style: italic; color: var(--gold-light);
+    font-weight: 300;
+  }
+  .hero-title-sub {
+    font-family: 'Cinzel', serif; font-weight: 400;
+    font-size: clamp(14px, 2vw, 22px); letter-spacing: .5em;
+    color: var(--gold); margin-bottom: 32px;
+    opacity: 0; animation: fadeUp .9s .55s forwards;
+  }
+  .hero-divider {
+    display: flex; align-items: center; justify-content: center; gap: 16px;
+    margin-bottom: 36px;
+    opacity: 0; animation: fadeUp .8s .65s forwards;
+  }
+  .hero-divider span { display: block; width: 60px; height: 1px; background: linear-gradient(90deg, transparent, var(--gold)); }
+  .hero-divider span:last-child { background: linear-gradient(270deg, transparent, var(--gold)); }
+  .hero-divider svg { width: 10px; height: 10px; fill: var(--gold); }
+  .hero-desc {
+    font-size: 14px; line-height: 1.9; letter-spacing: .06em;
+    color: rgba(249,245,238,.55); max-width: 560px; margin: 0 auto 48px;
+    opacity: 0; animation: fadeUp .8s .75s forwards;
+  }
+  .hero-btns {
+    display: flex; gap: 20px; justify-content: center;
+    opacity: 0; animation: fadeUp .8s .9s forwards;
+  }
+  .btn-primary {
+    font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: .25em;
+    background: var(--gold); color: var(--black);
+    padding: 16px 40px; text-decoration: none; border: none;
+    transition: all .3s; cursor: none; display: inline-block;
+  }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+  .btn-outline {
+    font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: .25em;
+    border: 1px solid rgba(201,168,76,.4); color: var(--gold);
+    padding: 16px 40px; text-decoration: none;
+    transition: all .3s; cursor: none; display: inline-block;
+  }
+  .btn-outline:hover { border-color: var(--gold); background: rgba(201,168,76,.05); }
+
+  .hero-scroll {
+    position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%);
+    z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 8px;
+    opacity: 0; animation: fadeUp .8s 1.2s forwards;
+  }
+  .hero-scroll span {
+    font-size: 9px; letter-spacing: .4em; text-transform: uppercase;
+    color: rgba(201,168,76,.5);
+  }
+  .scroll-line {
+    width: 1px; height: 50px;
+    background: linear-gradient(180deg, var(--gold), transparent);
+    animation: scrollPulse 2s infinite;
+  }
+
+  /* ── LOGO SECTION ── */
+  #brand {
+    padding: 80px 60px; text-align: center;
+    border-top: 1px solid rgba(201,168,76,.1);
+    border-bottom: 1px solid rgba(201,168,76,.1);
+    background: var(--dark);
+  }
+  .brand-inner { display: flex; align-items: center; justify-content: center; gap: 80px; flex-wrap: wrap; }
+  .brand-stat { text-align: center; }
+  .brand-stat .num {
+    font-family: 'Cormorant Garamond', serif; font-size: 48px; font-weight: 300;
+    color: var(--gold); line-height: 1;
+  }
+  .brand-stat .label {
+    font-size: 9px; letter-spacing: .35em; text-transform: uppercase;
+    color: rgba(249,245,238,.4); margin-top: 6px;
+  }
+  .brand-sep { width: 1px; height: 50px; background: rgba(201,168,76,.2); }
+
+  /* ── SERVICES ── */
+  #services { padding: 120px 60px; background: var(--black); }
+  .section-label {
+    font-size: 9px; letter-spacing: .5em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 16px;
+    display: flex; align-items: center; gap: 16px;
+  }
+  .section-label::after { content: ''; display: block; width: 40px; height: 1px; background: var(--gold); opacity: .4; }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif; font-weight: 300;
+    font-size: clamp(36px, 4vw, 58px); line-height: 1.1;
+    color: var(--white); margin-bottom: 20px;
+  }
+  .section-title em { font-style: italic; color: var(--gold-light); }
+  .section-sub {
+    font-size: 13px; letter-spacing: .05em; line-height: 1.9;
+    color: rgba(249,245,238,.45); max-width: 460px; margin-bottom: 70px;
+  }
+
+  .services-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px;
+  }
+  .service-card {
+    position: relative; overflow: hidden;
+    background: var(--dark2); padding: 52px 40px;
+    border: 1px solid rgba(201,168,76,.06);
+    transition: border-color .4s;
+    group: true;
+  }
+  .service-card:hover { border-color: rgba(201,168,76,.25); }
+  .service-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    opacity: 0; transition: opacity .4s;
+  }
+  .service-card:hover::before { opacity: 1; }
+  .service-num {
+    font-family: 'Cormorant Garamond', serif; font-size: 11px; font-weight: 300;
+    color: rgba(201,168,76,.3); letter-spacing: .2em;
+    margin-bottom: 24px;
+  }
+  .service-icon { margin-bottom: 24px; }
+  .service-icon svg { width: 32px; height: 32px; stroke: var(--gold); fill: none; stroke-width: 1; }
+  .service-name {
+    font-family: 'Cinzel', serif; font-size: 13px; letter-spacing: .15em;
+    color: var(--white); margin-bottom: 16px;
+  }
+  .service-desc {
+    font-size: 12.5px; line-height: 1.85; letter-spacing: .03em;
+    color: rgba(249,245,238,.4);
+  }
+  .service-arrow {
+    position: absolute; bottom: 32px; right: 32px;
+    width: 32px; height: 32px; border: 1px solid rgba(201,168,76,.2);
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; transform: translateX(-8px);
+    transition: all .3s;
+  }
+  .service-card:hover .service-arrow { opacity: 1; transform: translateX(0); }
+
+  /* ── EXPERIENCE SECTION ── */
+  #experience {
+    padding: 140px 60px;
+    background: var(--dark);
+    position: relative; overflow: hidden;
+  }
+  .exp-bg {
+    position: absolute; right: -200px; top: -100px;
+    width: 600px; height: 600px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,168,76,.04) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .exp-inner {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center;
+  }
+  .exp-photos {
+    position: relative; height: 580px;
+  }
+  .exp-photo {
+    position: absolute; overflow: hidden;
+    box-shadow: 0 30px 80px rgba(0,0,0,.6);
+  }
+  .exp-photo img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+    filter: brightness(.85) contrast(1.05);
+    transition: transform .8s;
+  }
+  .exp-photo:hover img { transform: scale(1.05); }
+  .ep1 { width: 300px; height: 400px; top: 0; left: 0; z-index: 2; }
+  .ep2 { width: 240px; height: 300px; top: 120px; right: 0; z-index: 3; border: 3px solid rgba(201,168,76,.3); }
+  .ep3 { width: 200px; height: 160px; bottom: 0; left: 60px; z-index: 1; }
+  .ep-badge {
+    position: absolute; bottom: -20px; right: -20px; z-index: 4;
+    width: 120px; height: 120px; border-radius: 50%;
+    background: var(--gold); display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    box-shadow: 0 0 40px rgba(201,168,76,.3);
+  }
+  .ep-badge .num { font-family: 'Cormorant Garamond', serif; font-size: 28px; color: var(--black); font-weight: 500; }
+  .ep-badge .txt { font-size: 7px; letter-spacing: .15em; text-transform: uppercase; color: var(--black); text-align: center; margin-top: -2px; }
+
+  /* ── DESTINATIONS ── */
+  #destinations { padding: 120px 60px; background: var(--black); }
+  .dest-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 60px; }
+  .dest-card {
+    position: relative; overflow: hidden; cursor: none;
+    aspect-ratio: 3/4;
+  }
+  .dest-card[style*="grid-column"] { aspect-ratio: 16/7; }
+  .dest-card img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform .8s; filter: brightness(.6) contrast(1.1);
+  }
+  .dest-card:hover img { transform: scale(1.08); }
+  .dest-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,.85) 100%);
+    display: flex; flex-direction: column; justify-content: flex-end; padding: 28px;
+  }
+  .dest-city {
+    font-family: 'Cinzel', serif; font-size: 16px; letter-spacing: .1em;
+    color: var(--white); margin-bottom: 4px;
+  }
+  .dest-tag {
+    font-size: 10px; letter-spacing: .2em; text-transform: uppercase;
+    color: var(--gold); opacity: .8;
+  }
+  .dest-card::after {
+    content: ''; position: absolute; inset: 0;
+    border: 1px solid rgba(201,168,76,.0);
+    transition: border-color .4s;
+  }
+  .dest-card:hover::after { border-color: rgba(201,168,76,.3); }
+
+  /* ── TESTIMONIAL ── */
+  #testimonials {
+    padding: 120px 60px; background: var(--dark2); text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .testi-bg {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 60% 50% at 50% 50%, rgba(201,168,76,.04) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .testi-quote {
+    font-family: 'Cormorant Garamond', serif; font-style: italic;
+    font-size: clamp(24px, 3.5vw, 42px); font-weight: 300;
+    line-height: 1.4; color: rgba(249,245,238,.85);
+    max-width: 800px; margin: 0 auto 36px; position: relative; z-index: 1;
+  }
+  .testi-mark {
+    font-family: 'Cormorant Garamond', serif; font-size: 100px; line-height: 0;
+    color: var(--gold); opacity: .25; vertical-align: -.5em;
+  }
+  .testi-author { font-size: 11px; letter-spacing: .3em; text-transform: uppercase; color: var(--gold); position: relative; z-index: 1; }
+  .testi-dots { display: flex; gap: 8px; justify-content: center; margin-top: 40px; }
+  .testi-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(201,168,76,.3); cursor: none; transition: background .3s; }
+  .testi-dot.active { background: var(--gold); }
+
+  /* ── CONTACT ── */
+  #contact { padding: 140px 60px; background: var(--black); }
+  .contact-inner {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: start;
+  }
+  .contact-info { padding-top: 8px; }
+  .contact-detail { margin-bottom: 36px; }
+  .cd-label { font-size: 9px; letter-spacing: .35em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+  .cd-value { font-family: 'Cormorant Garamond', serif; font-size: 18px; color: rgba(249,245,238,.7); }
+  .cd-value a { color: rgba(249,245,238,.7); text-decoration: none; transition: color .3s; }
+  .cd-value a:hover { color: var(--gold); }
+
+  /* FORM */
+  .contact-form { display: flex; flex-direction: column; gap: 24px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .form-group { display: flex; flex-direction: column; gap: 8px; }
+  .form-group label {
+    font-size: 9px; letter-spacing: .3em; text-transform: uppercase;
+    color: rgba(201,168,76,.6);
+  }
+  .form-group input, .form-group select, .form-group textarea {
+    background: rgba(201,168,76,.04); border: 1px solid rgba(201,168,76,.15);
+    color: var(--white); font-family: 'Jost', sans-serif; font-weight: 300;
+    font-size: 13px; letter-spacing: .05em;
+    padding: 14px 18px; outline: none;
+    transition: border-color .3s, background .3s;
+    -webkit-appearance: none; appearance: none;
+  }
+  .form-group input::placeholder, .form-group textarea::placeholder { color: rgba(249,245,238,.25); }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+    border-color: rgba(201,168,76,.5); background: rgba(201,168,76,.07);
+  }
+  .form-group select { cursor: none; color: rgba(249,245,238,.6); }
+  .form-group select option { background: var(--dark); color: var(--white); }
+  .form-group textarea { resize: none; min-height: 120px; }
+  .form-submit {
+    font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: .25em;
+    background: var(--gold); color: var(--black);
+    padding: 18px 48px; border: none; cursor: none;
+    transition: all .3s; align-self: flex-start;
+    position: relative; overflow: hidden;
+  }
+  .form-submit:hover { background: var(--gold-light); transform: translateY(-2px); }
+  .form-submit.loading { opacity: .6; pointer-events: none; }
+  .form-success {
+    display: none; padding: 20px; border: 1px solid rgba(201,168,76,.3);
+    background: rgba(201,168,76,.05); text-align: center;
+    font-size: 13px; color: var(--gold-light); letter-spacing: .05em;
+  }
+  .form-success.show { display: block; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--dark2); padding: 60px 60px 40px;
+    border-top: 1px solid rgba(201,168,76,.1);
+  }
+  .footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 30px; }
+  .footer-logo {
+    font-family: 'Cinzel', serif; font-size: 12px; letter-spacing: .3em;
+    color: var(--gold); display: flex; align-items: center; gap: 10px;
+  }
+  .footer-links { display: flex; gap: 36px; }
+  .footer-links a {
+    font-size: 10px; letter-spacing: .2em; text-transform: uppercase;
+    color: rgba(249,245,238,.3); text-decoration: none; transition: color .3s;
+  }
+  .footer-links a:hover { color: var(--gold); }
+  .footer-copy { font-size: 11px; color: rgba(249,245,238,.2); letter-spacing: .05em; }
+  .footer-divider { width: 100%; height: 1px; background: rgba(201,168,76,.08); margin: 30px 0 20px; }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes scrollPulse {
+    0%, 100% { opacity: .3; }
+    50% { opacity: 1; }
+  }
+  .reveal {
+    opacity: 0; transform: translateY(40px);
+    transition: opacity .9s ease, transform .9s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1 { transition-delay: .1s; }
+  .reveal-delay-2 { transition-delay: .2s; }
+  .reveal-delay-3 { transition-delay: .3s; }
+  .reveal-delay-4 { transition-delay: .4s; }
+
+  /* ── SWAN LOGO SVG ── */
+  .logo-swan { display: inline-block; }
+
+  @media (max-width: 1024px) {
+    nav { padding: 24px 30px; }
+    nav.scrolled { padding: 16px 30px; }
+    .nav-links { display: none; }
+    #services, #destinations, #contact, #experience, #testimonials, #brand { padding-left: 30px; padding-right: 30px; }
+    .services-grid { grid-template-columns: 1fr 1fr; }
+    .dest-grid { grid-template-columns: 1fr 1fr; }
+    .exp-inner, .contact-inner { grid-template-columns: 1fr; gap: 60px; }
+    .exp-photos { height: 360px; }
+    .ep1 { width: 220px; height: 280px; }
+    .ep2 { width: 180px; height: 220px; }
+    .ep3 { display: none; }
+    .ep-badge { width: 90px; height: 90px; }
+    .ep-badge .num { font-size: 20px; }
+  }
+
+  @media (max-width: 600px) {
+    .services-grid { grid-template-columns: 1fr; }
+    .dest-grid { grid-template-columns: 1fr 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .hero-btns { flex-direction: column; align-items: center; }
+    .brand-inner { gap: 40px; }
+    .brand-sep { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Custom cursor -->
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">
+    <!-- Inline swan SVG -->
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="logo-swan">
+      <path d="M12 3C10 3 8 4.5 7.5 6.5C7 8.5 8 10 9 11C10 12 10 13 9.5 14.5C9 16 7.5 17 6 17.5C5 17.8 4 17.5 3.5 18C3 18.5 3.5 19.5 5 19.5C7 19.5 9.5 18.5 11 17C12 16 12.5 15 13.5 14.5C15 13.5 17 13.5 18.5 12.5C20 11.5 21 9.5 20.5 7.5C20 5.5 18 4 16 3.5C14.8 3.2 13.3 3 12 3Z" stroke="#C9A84C" stroke-width="1" fill="none"/>
+      <path d="M9.5 14.5C9 15.5 8 16.5 7 17C6 17.5 5 17.5 4.5 18C4 18.5 4.5 19.5 6 19.5C8 19.5 10.5 19 12 18C13.5 17 14 16 14 14.5" stroke="#C9A84C" stroke-width=".8" fill="none"/>
+    </svg>
+    LUXURY PRIVÉ
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#destinations">Destinations</a></li>
+    <li><a href="#testimonials">Clients</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Enquire Now</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-photo-grid">
+    <div class="hp1"></div>
+    <div class="hp2"></div>
+    <div class="hp3"></div>
+  </div>
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Luxury Concierge &amp; Lifestyle</div>
+    <h1 class="hero-title">
+      <em>Luxury</em><br>Privé
+    </h1>
+    <div class="hero-title-sub">PRIVÉ</div>
+    <div class="hero-divider">
+      <span></span>
+      <svg viewBox="0 0 10 10"><path d="M5 0 L10 5 L5 10 L0 5 Z" fill="#C9A84C"/></svg>
+      <span></span>
+    </div>
+    <p class="hero-desc">
+      Elite concierge, villa management &amp; lifestyle curation across Europe's most coveted destinations. Every detail, flawlessly arranged.
+    </p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-primary">Request Our Services</a>
+      <a href="#services" class="btn-outline">Discover More</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div id="brand">
+  <div class="brand-inner">
+    <div class="brand-stat reveal">
+      <div class="num">12+</div>
+      <div class="label">Years of Excellence</div>
+    </div>
+    <div class="brand-sep"></div>
+    <div class="brand-stat reveal reveal-delay-1">
+      <div class="num">340+</div>
+      <div class="label">Elite Clients Served</div>
+    </div>
+    <div class="brand-sep"></div>
+    <div class="brand-stat reveal reveal-delay-2">
+      <div class="num">18</div>
+      <div class="label">European Destinations</div>
+    </div>
+    <div class="brand-sep"></div>
+    <div class="brand-stat reveal reveal-delay-3">
+      <div class="num">24/7</div>
+      <div class="label">Concierge Availability</div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-label reveal">Our Expertise</div>
+  <h2 class="section-title reveal"><em>Bespoke</em> Services<br>Crafted for You</h2>
+  <p class="section-sub reveal">Each service is tailored with uncompromising precision, delivering an experience that transcends expectation.</p>
+
+  <div class="services-grid">
+    <!-- 1 -->
+    <div class="service-card reveal">
+      <div class="service-num">01</div>
+      <div class="service-icon">
+        <svg viewBox="0 0 32 32"><path d="M16 4 C10 4 5 9 5 15 C5 22 12 28 16 28 C20 28 27 22 27 15 C27 9 22 4 16 4Z"/><path d="M16 8 L16 16 L21 19"/><path d="M8 12 L5 12 M24 12 L27 12 M16 4 L16 7"/></svg>
+      </div>
+      <div class="service-name">Luxury Concierge</div>
+      <div class="service-desc">Around-the-clock personal assistance for every request — restaurant reservations, private events, exclusive access, and anything your lifestyle demands.</div>
+      <div class="service-arrow">→</div>
+    </div>
+    <!-- 2 -->
+    <div class="service-card reveal reveal-delay-1">
+      <div class="service-num">02</div>
+      <div class="service-icon">
+        <svg viewBox="0 0 32 32"><rect x="4" y="10" width="24" height="18" rx="1"/><path d="M10 10 L10 7 C10 5.3 11.3 4 13 4 L19 4 C20.7 4 22 5.3 22 7 L22 10"/><path d="M4 16 L28 16"/></svg>
+      </div>
+      <div class="service-name">Villa & Property Management</div>
+      <div class="service-desc">Complete management of luxury residences and villas across Europe — maintenance, staffing, guest preparation, and year-round care.</div>
+      <div class="service-arrow">→</div>
+    </div>
+    <!-- 3 -->
+    <div class="service-card reveal reveal-delay-2">
+      <div class="service-num">03</div>
+      <div class="service-icon">
+        <svg viewBox="0 0 32 32"><path d="M16 4 L20 12 L28 13 L22 19 L23.5 27 L16 23 L8.5 27 L10 19 L4 13 L12 12 Z"/></svg>
+      </div>
+      <div class="service-name">Guest Experience Design</div>
+      <div class="service-desc">Curated welcome experiences, bespoke itineraries, floral arrangements, champagne arrivals, and immersive local journeys crafted for each guest.</div>
+      <div class="service-arrow">→</div>
+    </div>
+    <!-- 4 -->
+    <div class="service-card reveal">
+      <div class="service-num">04</div>
+      <div class="service-icon">
+        <svg viewBox="0 0 32 32"><path d="M6 26 L6 12 L16 4 L26 12 L26 26"/><path d="M12 26 L12 18 L20 18 L20 26"/><path d="M2 26 L30 26"/></svg>
+      </div>
+      <div class="service-name">Premium Travel</div>
+      <div class="service-desc">Private jet coordination, yacht charters, luxury transfers, exclusive hotel access, and seamless multi-destination European travel planning.</div>
+      <div class="service-arrow">→</div>
+    </div>
+    <!-- 5 -->
+    <div class="service-card reveal reveal-delay-1">
+      <div class="service-num">05</div>
+      <div class="service-icon">
+        <svg viewBox="0 0 32 32"><circle cx="16" cy="12" r="6"/><path d="M6 28 C6 22 10 18 16 18 C22 18 26 22 26 28"/><path d="M22 6 C24 7 26 9 26 12"/></svg>
+      </div>
+      <div class="service-name">Executive Support</div>
+      <div class="service-desc">Personal assistant services for high-net-worth individuals — scheduling, vendor management, lifestyle administration, and VIP coordination.</div>
+      <div class="service-arrow">→</div>
+    </div>
+    <!-- 6 -->
+    <div class="service-card reveal reveal-delay-2">
+      <div class="service-num">06</div>
+      <div class="service-icon">
+        <svg viewBox="0 0 32 32"><path d="M4 8 L28 8 L28 24 L4 24 Z"/><path d="M4 8 L16 17 L28 8"/></svg>
+      </div>
+      <div class="service-name">Events & Celebrations</div>
+      <div class="service-desc">Intimate private dinners to grand milestone celebrations — every event orchestrated with elegance, from concept and styling to flawless execution.</div>
+      <div class="service-arrow">→</div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="exp-bg"></div>
+  <div class="exp-inner">
+    <div class="exp-photos reveal">
+      <div class="exp-photo ep1">
+        <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=600&q=80" alt="Luxury suite">
+      </div>
+      <div class="exp-photo ep2">
+        <img src="https://images.unsplash.com/photo-1596386461350-326ccb383e9f?w=500&q=80" alt="Luxury breakfast">
+        <div class="ep-badge">
+          <div class="num">5★</div>
+          <div class="txt">Always</div>
+        </div>
+      </div>
+      <div class="exp-photo ep3">
+        <img src="https://images.unsplash.com/photo-1549417229-7686ac5595fd?w=400&q=80" alt="Champagne welcome">
+      </div>
+    </div>
+    <div>
+      <div class="section-label reveal">The Privé Difference</div>
+      <h2 class="section-title reveal"><em>Elevating</em><br>Every Moment</h2>
+      <p style="font-size:13.5px; line-height:2; color:rgba(249,245,238,.5); margin-bottom:36px;" class="reveal">
+        We believe luxury is not a product — it is a feeling. Our team anticipates every need before it arises, weaving together the finest properties, experiences, and personal touches into journeys that leave lasting impressions.
+      </p>
+      <p style="font-size:13.5px; line-height:2; color:rgba(249,245,238,.5); margin-bottom:48px;" class="reveal">
+        From a handwritten welcome note to securing a last-minute table at Europe's most sought-after restaurant, Luxury Privé operates with the quiet efficiency that defines true excellence.
+      </p>
+      <div style="display:flex; gap:40px;" class="reveal">
+        <div>
+          <div style="font-family:'Cormorant Garamond',serif; font-size:36px; color:var(--gold);">Milan</div>
+          <div style="font-size:9px; letter-spacing:.3em; text-transform:uppercase; color:rgba(249,245,238,.3);">Flagship Base</div>
+        </div>
+        <div style="width:1px; background:rgba(201,168,76,.15);"></div>
+        <div>
+          <div style="font-family:'Cormorant Garamond',serif; font-size:36px; color:var(--gold);">Prague</div>
+          <div style="font-size:9px; letter-spacing:.3em; text-transform:uppercase; color:rgba(249,245,238,.3);">European Hub</div>
+        </div>
+        <div style="width:1px; background:rgba(201,168,76,.15);"></div>
+        <div>
+          <div style="font-family:'Cormorant Garamond',serif; font-size:36px; color:var(--gold);">Europe</div>
+          <div style="font-size:9px; letter-spacing:.3em; text-transform:uppercase; color:rgba(249,245,238,.3);">Full Coverage</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DESTINATIONS -->
+<section id="destinations">
+  <div class="section-label reveal">Where We Operate</div>
+  <h2 class="section-title reveal">Our <em>Destinations</em></h2>
+  <div class="dest-grid">
+    <div class="dest-card reveal">
+      <img src="https://images.unsplash.com/photo-1512149074996-e923ac45be6a?w=500&q=80" alt="Milan">
+      <div class="dest-overlay">
+        <div class="dest-city">Milan</div>
+        <div class="dest-tag">Fashion & Lifestyle</div>
+      </div>
+    </div>
+    <div class="dest-card reveal reveal-delay-1">
+      <img src="https://images.unsplash.com/photo-1541849546-216549ae216d?w=500&q=80" alt="Prague">
+      <div class="dest-overlay">
+        <div class="dest-city">Prague</div>
+        <div class="dest-tag">Culture & Heritage</div>
+      </div>
+    </div>
+    <div class="dest-card reveal reveal-delay-2" style="grid-column: span 2;">
+      <img src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=900&q=80" alt="Europe" style="height:100%; object-position: center 40%;">
+      <div class="dest-overlay">
+        <div class="dest-city">Pan-European</div>
+        <div class="dest-tag">Anywhere Across Europe</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="testi-bg"></div>
+  <div class="section-label" style="justify-content:center; margin-bottom:50px;" class="reveal">Client Voices</div>
+  <div id="testiContent">
+    <p class="testi-quote reveal">
+      <span class="testi-mark">"</span>
+      Luxury Privé redefined what I believed a concierge service could be. Every detail of our Amalfi stay was arranged with an elegance I have never encountered before.
+      <span class="testi-mark">"</span>
+    </p>
+    <div class="testi-author reveal">— Alexandra M., Monaco</div>
+  </div>
+  <div class="testi-dots">
+    <div class="testi-dot active" onclick="changeTesti(0)"></div>
+    <div class="testi-dot" onclick="changeTesti(1)"></div>
+    <div class="testi-dot" onclick="changeTesti(2)"></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner">
+    <div class="contact-info">
+      <div class="section-label reveal">Get in Touch</div>
+      <h2 class="section-title reveal">Begin Your<br><em>Private</em> Journey</h2>
+      <p style="font-size:13px; line-height:1.9; color:rgba(249,245,238,.45); margin-bottom:52px;" class="reveal">
+        Share your vision with us. Our team will respond within 24 hours to craft a bespoke proposal tailored exclusively for you.
+      </p>
+      <div class="contact-detail reveal">
+        <div class="cd-label">Email</div>
+        <div class="cd-value"><a href="mailto:concierge.luxuryprive@gmail.com">concierge.luxuryprive@gmail.com</a></div>
+      </div>
+      <div class="contact-detail reveal">
+        <div class="cd-label">Available</div>
+        <div class="cd-value">24 hours · 7 days a week</div>
+      </div>
+      <div class="contact-detail reveal">
+        <div class="cd-label">Bases</div>
+        <div class="cd-value">Milan · Prague · Pan-European</div>
+      </div>
+    </div>
+    <div>
+      <form class="contact-form reveal" id="contactForm" onsubmit="handleSubmit(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label>First Name</label>
+            <input type="text" placeholder="Your name" required name="first_name">
+          </div>
+          <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" placeholder="Last name" required name="last_name">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" placeholder="your@email.com" required name="email">
+        </div>
+        <div class="form-group">
+          <label>Service of Interest</label>
+          <select name="service" required>
+            <option value="" disabled selected>Select a service</option>
+            <option>Luxury Concierge</option>
+            <option>Villa & Property Management</option>
+            <option>Guest Experience Design</option>
+            <option>Premium Travel</option>
+            <option>Executive Support</option>
+            <option>Events & Celebrations</option>
+            <option>Multiple Services</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Your Request</label>
+          <textarea placeholder="Tell us about your vision, requirements, or upcoming trip..." name="message" required></textarea>
+        </div>
+        <button type="submit" class="form-submit" id="submitBtn">Send Enquiry</button>
+        <div class="form-success" id="formSuccess">
+          ✦ &nbsp; Thank you. We will be in touch within 24 hours.
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+        <path d="M12 3C10 3 8 4.5 7.5 6.5C7 8.5 8 10 9 11C10 12 10 13 9.5 14.5C9 16 7.5 17 6 17.5C5 17.8 4 17.5 3.5 18C3 18.5 3.5 19.5 5 19.5C7 19.5 9.5 18.5 11 17C12 16 12.5 15 13.5 14.5C15 13.5 17 13.5 18.5 12.5C20 11.5 21 9.5 20.5 7.5C20 5.5 18 4 16 3.5C14.8 3.2 13.3 3 12 3Z" stroke="#C9A84C" stroke-width="1"/>
+      </svg>
+      LUXURY PRIVÉ
+    </div>
+    <div class="footer-links">
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="#services">Services</a>
+      <a href="#experience">Experience</a>
+      <a href="#destinations">Destinations</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="footer-copy">© 2025 Luxury Privé. All rights reserved.</div>
+  </div>
+  <div class="footer-divider"></div>
+  <div style="text-align:center; font-size:10px; letter-spacing:.3em; color:rgba(201,168,76,.2); text-transform:uppercase;">
+    Crafted for the Discerning Few
+  </div>
+</footer>
+
+<script>
+// Custom cursor
+const cursor = document.getElementById('cursor');
+const cursorRing = document.getElementById('cursor-ring');
+document.addEventListener('mousemove', e => {
+  cursor.style.left = e.clientX + 'px';
+  cursor.style.top = e.clientY + 'px';
+  setTimeout(() => {
+    cursorRing.style.left = e.clientX + 'px';
+    cursorRing.style.top = e.clientY + 'px';
+  }, 60);
+});
+document.querySelectorAll('a, button, .dest-card, .service-card').forEach(el => {
+  el.addEventListener('mouseenter', () => {
+    cursor.style.width = '14px'; cursor.style.height = '14px';
+    cursorRing.style.width = '50px'; cursorRing.style.height = '50px';
+  });
+  el.addEventListener('mouseleave', () => {
+    cursor.style.width = '8px'; cursor.style.height = '8px';
+    cursorRing.style.width = '36px'; cursorRing.style.height = '36px';
+  });
+});
+
+// Navbar scroll
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// Reveal on scroll
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Testimonials
+const testis = [
+  { quote: "Luxury Privé redefined what I believed a concierge service could be. Every detail of our Amalfi stay was arranged with an elegance I have never encountered before.", author: "— Alexandra M., Monaco" },
+  { quote: "From our private villa in Prague to an impromptu champagne dinner on the terrace — Luxury Privé made every moment feel effortless and utterly extraordinary.", author: "— James R., London" },
+  { quote: "Their attention to detail is unmatched. A single call, and everything was handled — flowers, transfers, private chef, even a surprise anniversary setup.", author: "— Nadia V., Dubai" }
+];
+function changeTesti(i) {
+  const q = document.querySelector('.testi-quote');
+  const a = document.querySelector('.testi-author');
+  q.style.opacity = '0'; a.style.opacity = '0';
+  setTimeout(() => {
+    q.innerHTML = `<span class="testi-mark">"</span>${testis[i].quote}<span class="testi-mark">"</span>`;
+    a.textContent = testis[i].author;
+    q.style.opacity = '1'; a.style.opacity = '1';
+  }, 300);
+  document.querySelectorAll('.testi-dot').forEach((d, j) => d.classList.toggle('active', i === j));
+}
+document.querySelectorAll('.testi-quote, .testi-author').forEach(el => {
+  el.style.transition = 'opacity .3s';
+});
+let testiIdx = 0;
+setInterval(() => { testiIdx = (testiIdx + 1) % 3; changeTesti(testiIdx); }, 6000);
+
+// Form submit → mailto
+async function handleSubmit(e) {
+  e.preventDefault();
+  const btn = document.getElementById('submitBtn');
+  btn.textContent = 'Sending...';
+  btn.classList.add('loading');
+  const form = e.target;
+  const data = new FormData(form);
+  const name = `${data.get('first_name')} ${data.get('last_name')}`;
+  const email = data.get('email');
+  const service = data.get('service');
+  const message = data.get('message');
+  const subject = encodeURIComponent(`Luxury Privé Enquiry — ${service}`);
+  const body = encodeURIComponent(
+    `New Enquiry from: ${name}\nEmail: ${email}\nService: ${service}\n\nMessage:\n${message}`
+  );
+  // Open mailto
+  setTimeout(() => {
+    window.location.href = `mailto:concierge.luxuryprive@gmail.com?subject=${subject}&body=${body}`;
+    btn.textContent = 'Send Enquiry';
+    btn.classList.remove('loading');
+    document.getElementById('formSuccess').classList.add('show');
+    form.reset();
+    setTimeout(() => document.getElementById('formSuccess').classList.remove('show'), 6000);
+  }, 800);
+}
+</script>
+</body>
+</html>
