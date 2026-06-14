@@ -29,9 +29,7 @@
   }
 
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
   html { scroll-behavior: smooth; }
-
   body {
     background: var(--black);
     color: var(--white);
@@ -104,23 +102,23 @@
     position: absolute; inset: 0;
     background: 
       radial-gradient(ellipse 80% 60% at 50% 40%, rgba(201,168,76,.06) 0%, transparent 70%),
-      linear-gradient(180deg, rgba(8,8,8,0) 0%, rgba(8,8,8,.7) 100%);
+      linear-gradient(180deg, rgba(8,8,8,.3) 0%, rgba(8,8,8,.75) 100%);
     z-index: 1;
   }
-  /* Luxury photo grid behind hero */
   .hero-photo-grid {
     position: absolute; inset: 0; z-index: 0;
-    display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2px; opacity: .18;
+    display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2px; opacity: .22;
   }
   .hero-photo-grid div {
     background-size: cover; background-position: center;
-    filter: grayscale(30%);
+    filter: grayscale(20%) contrast(1.1);
   }
-  /* Using gradient art as placeholders for luxury imagery */
-  .hp1 { background: linear-gradient(135deg, #1a1205 0%, #2d2010 40%, #1a1205 100%),
-    url('https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=600&q=80') center/cover; }
-  .hp2 { background: url('https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=600&q=80') center/cover; }
-  .hp3 { background: url('https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&q=80') center/cover; }
+  /* Luxury hotel lobby */
+  .hp1 { background-image: url('https://images.pexels.com/photos/1743229/pexels-photo-1743229.jpeg?auto=compress&cs=tinysrgb&w=800'); }
+  /* Private villa pool */
+  .hp2 { background-image: url('https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg?auto=compress&cs=tinysrgb&w=800'); }
+  /* Luxury interior / suite */
+  .hp3 { background-image: url('https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg?auto=compress&cs=tinysrgb&w=800'); }
 
   .hero-content {
     position: relative; z-index: 2;
@@ -142,10 +140,7 @@
     color: var(--white); margin-bottom: 12px;
     opacity: 0; animation: fadeUp .9s .4s forwards;
   }
-  .hero-title em {
-    font-style: italic; color: var(--gold-light);
-    font-weight: 300;
-  }
+  .hero-title em { font-style: italic; color: var(--gold-light); font-weight: 300; }
   .hero-title-sub {
     font-family: 'Cinzel', serif; font-weight: 400;
     font-size: clamp(14px, 2vw, 22px); letter-spacing: .5em;
@@ -183,23 +178,15 @@
     transition: all .3s; cursor: none; display: inline-block;
   }
   .btn-outline:hover { border-color: var(--gold); background: rgba(201,168,76,.05); }
-
   .hero-scroll {
     position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%);
     z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 8px;
     opacity: 0; animation: fadeUp .8s 1.2s forwards;
   }
-  .hero-scroll span {
-    font-size: 9px; letter-spacing: .4em; text-transform: uppercase;
-    color: rgba(201,168,76,.5);
-  }
-  .scroll-line {
-    width: 1px; height: 50px;
-    background: linear-gradient(180deg, var(--gold), transparent);
-    animation: scrollPulse 2s infinite;
-  }
+  .hero-scroll span { font-size: 9px; letter-spacing: .4em; text-transform: uppercase; color: rgba(201,168,76,.5); }
+  .scroll-line { width: 1px; height: 50px; background: linear-gradient(180deg, var(--gold), transparent); animation: scrollPulse 2s infinite; }
 
-  /* ── LOGO SECTION ── */
+  /* ── STATS ── */
   #brand {
     padding: 80px 60px; text-align: center;
     border-top: 1px solid rgba(201,168,76,.1);
@@ -208,14 +195,8 @@
   }
   .brand-inner { display: flex; align-items: center; justify-content: center; gap: 80px; flex-wrap: wrap; }
   .brand-stat { text-align: center; }
-  .brand-stat .num {
-    font-family: 'Cormorant Garamond', serif; font-size: 48px; font-weight: 300;
-    color: var(--gold); line-height: 1;
-  }
-  .brand-stat .label {
-    font-size: 9px; letter-spacing: .35em; text-transform: uppercase;
-    color: rgba(249,245,238,.4); margin-top: 6px;
-  }
+  .brand-stat .num { font-family: 'Cormorant Garamond', serif; font-size: 48px; font-weight: 300; color: var(--gold); line-height: 1; }
+  .brand-stat .label { font-size: 9px; letter-spacing: .35em; text-transform: uppercase; color: rgba(249,245,238,.4); margin-top: 6px; }
   .brand-sep { width: 1px; height: 50px; background: rgba(201,168,76,.2); }
 
   /* ── SERVICES ── */
@@ -226,26 +207,15 @@
     display: flex; align-items: center; gap: 16px;
   }
   .section-label::after { content: ''; display: block; width: 40px; height: 1px; background: var(--gold); opacity: .4; }
-  .section-title {
-    font-family: 'Cormorant Garamond', serif; font-weight: 300;
-    font-size: clamp(36px, 4vw, 58px); line-height: 1.1;
-    color: var(--white); margin-bottom: 20px;
-  }
+  .section-title { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(36px, 4vw, 58px); line-height: 1.1; color: var(--white); margin-bottom: 20px; }
   .section-title em { font-style: italic; color: var(--gold-light); }
-  .section-sub {
-    font-size: 13px; letter-spacing: .05em; line-height: 1.9;
-    color: rgba(249,245,238,.45); max-width: 460px; margin-bottom: 70px;
-  }
-
-  .services-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px;
-  }
+  .section-sub { font-size: 13px; letter-spacing: .05em; line-height: 1.9; color: rgba(249,245,238,.45); max-width: 460px; margin-bottom: 70px; }
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
   .service-card {
     position: relative; overflow: hidden;
     background: var(--dark2); padding: 52px 40px;
     border: 1px solid rgba(201,168,76,.06);
     transition: border-color .4s;
-    group: true;
   }
   .service-card:hover { border-color: rgba(201,168,76,.25); }
   .service-card::before {
@@ -254,48 +224,29 @@
     opacity: 0; transition: opacity .4s;
   }
   .service-card:hover::before { opacity: 1; }
-  .service-num {
-    font-family: 'Cormorant Garamond', serif; font-size: 11px; font-weight: 300;
-    color: rgba(201,168,76,.3); letter-spacing: .2em;
-    margin-bottom: 24px;
-  }
+  .service-num { font-family: 'Cormorant Garamond', serif; font-size: 11px; font-weight: 300; color: rgba(201,168,76,.3); letter-spacing: .2em; margin-bottom: 24px; }
   .service-icon { margin-bottom: 24px; }
   .service-icon svg { width: 32px; height: 32px; stroke: var(--gold); fill: none; stroke-width: 1; }
-  .service-name {
-    font-family: 'Cinzel', serif; font-size: 13px; letter-spacing: .15em;
-    color: var(--white); margin-bottom: 16px;
-  }
-  .service-desc {
-    font-size: 12.5px; line-height: 1.85; letter-spacing: .03em;
-    color: rgba(249,245,238,.4);
-  }
+  .service-name { font-family: 'Cinzel', serif; font-size: 13px; letter-spacing: .15em; color: var(--white); margin-bottom: 16px; }
+  .service-desc { font-size: 12.5px; line-height: 1.85; letter-spacing: .03em; color: rgba(249,245,238,.4); }
   .service-arrow {
     position: absolute; bottom: 32px; right: 32px;
     width: 32px; height: 32px; border: 1px solid rgba(201,168,76,.2);
     display: flex; align-items: center; justify-content: center;
-    opacity: 0; transform: translateX(-8px);
-    transition: all .3s;
+    opacity: 0; transform: translateX(-8px); transition: all .3s;
   }
   .service-card:hover .service-arrow { opacity: 1; transform: translateX(0); }
 
-  /* ── EXPERIENCE SECTION ── */
-  #experience {
-    padding: 140px 60px;
-    background: var(--dark);
-    position: relative; overflow: hidden;
-  }
+  /* ── EXPERIENCE ── */
+  #experience { padding: 140px 60px; background: var(--dark); position: relative; overflow: hidden; }
   .exp-bg {
     position: absolute; right: -200px; top: -100px;
     width: 600px; height: 600px; border-radius: 50%;
     background: radial-gradient(circle, rgba(201,168,76,.04) 0%, transparent 70%);
     pointer-events: none;
   }
-  .exp-inner {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center;
-  }
-  .exp-photos {
-    position: relative; height: 580px;
-  }
+  .exp-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center; }
+  .exp-photos { position: relative; height: 580px; }
   .exp-photo {
     position: absolute; overflow: hidden;
     box-shadow: 0 30px 80px rgba(0,0,0,.6);
@@ -322,11 +273,8 @@
   /* ── DESTINATIONS ── */
   #destinations { padding: 120px 60px; background: var(--black); }
   .dest-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 60px; }
-  .dest-card {
-    position: relative; overflow: hidden; cursor: none;
-    aspect-ratio: 3/4;
-  }
-  .dest-card[style*="grid-column"] { aspect-ratio: 16/7; }
+  .dest-card { position: relative; overflow: hidden; cursor: none; aspect-ratio: 3/4; }
+  .dest-card.wide { aspect-ratio: 16/7; grid-column: span 2; }
   .dest-card img {
     width: 100%; height: 100%; object-fit: cover;
     transition: transform .8s; filter: brightness(.6) contrast(1.1);
@@ -337,26 +285,16 @@
     background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,.85) 100%);
     display: flex; flex-direction: column; justify-content: flex-end; padding: 28px;
   }
-  .dest-city {
-    font-family: 'Cinzel', serif; font-size: 16px; letter-spacing: .1em;
-    color: var(--white); margin-bottom: 4px;
-  }
-  .dest-tag {
-    font-size: 10px; letter-spacing: .2em; text-transform: uppercase;
-    color: var(--gold); opacity: .8;
-  }
+  .dest-city { font-family: 'Cinzel', serif; font-size: 16px; letter-spacing: .1em; color: var(--white); margin-bottom: 4px; }
+  .dest-tag { font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); opacity: .8; }
   .dest-card::after {
     content: ''; position: absolute; inset: 0;
-    border: 1px solid rgba(201,168,76,.0);
-    transition: border-color .4s;
+    border: 1px solid rgba(201,168,76,.0); transition: border-color .4s;
   }
   .dest-card:hover::after { border-color: rgba(201,168,76,.3); }
 
-  /* ── TESTIMONIAL ── */
-  #testimonials {
-    padding: 120px 60px; background: var(--dark2); text-align: center;
-    position: relative; overflow: hidden;
-  }
+  /* ── TESTIMONIALS ── */
+  #testimonials { padding: 120px 60px; background: var(--dark2); text-align: center; position: relative; overflow: hidden; }
   .testi-bg {
     position: absolute; inset: 0;
     background: radial-gradient(ellipse 60% 50% at 50% 50%, rgba(201,168,76,.04) 0%, transparent 70%);
@@ -368,10 +306,7 @@
     line-height: 1.4; color: rgba(249,245,238,.85);
     max-width: 800px; margin: 0 auto 36px; position: relative; z-index: 1;
   }
-  .testi-mark {
-    font-family: 'Cormorant Garamond', serif; font-size: 100px; line-height: 0;
-    color: var(--gold); opacity: .25; vertical-align: -.5em;
-  }
+  .testi-mark { font-family: 'Cormorant Garamond', serif; font-size: 100px; line-height: 0; color: var(--gold); opacity: .25; vertical-align: -.5em; }
   .testi-author { font-size: 11px; letter-spacing: .3em; text-transform: uppercase; color: var(--gold); position: relative; z-index: 1; }
   .testi-dots { display: flex; gap: 8px; justify-content: center; margin-top: 40px; }
   .testi-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(201,168,76,.3); cursor: none; transition: background .3s; }
@@ -379,24 +314,17 @@
 
   /* ── CONTACT ── */
   #contact { padding: 140px 60px; background: var(--black); }
-  .contact-inner {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: start;
-  }
+  .contact-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: start; }
   .contact-info { padding-top: 8px; }
   .contact-detail { margin-bottom: 36px; }
   .cd-label { font-size: 9px; letter-spacing: .35em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
   .cd-value { font-family: 'Cormorant Garamond', serif; font-size: 18px; color: rgba(249,245,238,.7); }
   .cd-value a { color: rgba(249,245,238,.7); text-decoration: none; transition: color .3s; }
   .cd-value a:hover { color: var(--gold); }
-
-  /* FORM */
   .contact-form { display: flex; flex-direction: column; gap: 24px; }
   .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
   .form-group { display: flex; flex-direction: column; gap: 8px; }
-  .form-group label {
-    font-size: 9px; letter-spacing: .3em; text-transform: uppercase;
-    color: rgba(201,168,76,.6);
-  }
+  .form-group label { font-size: 9px; letter-spacing: .3em; text-transform: uppercase; color: rgba(201,168,76,.6); }
   .form-group input, .form-group select, .form-group textarea {
     background: rgba(201,168,76,.04); border: 1px solid rgba(201,168,76,.15);
     color: var(--white); font-family: 'Jost', sans-serif; font-weight: 300;
@@ -434,40 +362,22 @@
     border-top: 1px solid rgba(201,168,76,.1);
   }
   .footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 30px; }
-  .footer-logo {
-    font-family: 'Cinzel', serif; font-size: 12px; letter-spacing: .3em;
-    color: var(--gold); display: flex; align-items: center; gap: 10px;
-  }
+  .footer-logo { font-family: 'Cinzel', serif; font-size: 12px; letter-spacing: .3em; color: var(--gold); display: flex; align-items: center; gap: 10px; }
   .footer-links { display: flex; gap: 36px; }
-  .footer-links a {
-    font-size: 10px; letter-spacing: .2em; text-transform: uppercase;
-    color: rgba(249,245,238,.3); text-decoration: none; transition: color .3s;
-  }
+  .footer-links a { font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: rgba(249,245,238,.3); text-decoration: none; transition: color .3s; }
   .footer-links a:hover { color: var(--gold); }
   .footer-copy { font-size: 11px; color: rgba(249,245,238,.2); letter-spacing: .05em; }
   .footer-divider { width: 100%; height: 1px; background: rgba(201,168,76,.08); margin: 30px 0 20px; }
 
   /* ── ANIMATIONS ── */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  @keyframes scrollPulse {
-    0%, 100% { opacity: .3; }
-    50% { opacity: 1; }
-  }
-  .reveal {
-    opacity: 0; transform: translateY(40px);
-    transition: opacity .9s ease, transform .9s ease;
-  }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes scrollPulse { 0%, 100% { opacity: .3; } 50% { opacity: 1; } }
+  .reveal { opacity: 0; transform: translateY(40px); transition: opacity .9s ease, transform .9s ease; }
   .reveal.visible { opacity: 1; transform: translateY(0); }
   .reveal-delay-1 { transition-delay: .1s; }
   .reveal-delay-2 { transition-delay: .2s; }
   .reveal-delay-3 { transition-delay: .3s; }
   .reveal-delay-4 { transition-delay: .4s; }
-
-  /* ── SWAN LOGO SVG ── */
-  .logo-swan { display: inline-block; }
 
   @media (max-width: 1024px) {
     nav { padding: 24px 30px; }
@@ -484,10 +394,10 @@
     .ep-badge { width: 90px; height: 90px; }
     .ep-badge .num { font-size: 20px; }
   }
-
   @media (max-width: 600px) {
     .services-grid { grid-template-columns: 1fr; }
-    .dest-grid { grid-template-columns: 1fr 1fr; }
+    .dest-grid { grid-template-columns: 1fr; }
+    .dest-card.wide { grid-column: span 1; aspect-ratio: 3/2; }
     .form-row { grid-template-columns: 1fr; }
     .hero-btns { flex-direction: column; align-items: center; }
     .brand-inner { gap: 40px; }
@@ -497,15 +407,13 @@
 </head>
 <body>
 
-<!-- Custom cursor -->
 <div id="cursor"></div>
 <div id="cursor-ring"></div>
 
 <!-- NAV -->
 <nav id="navbar">
   <a href="#" class="nav-logo">
-    <!-- Inline swan SVG -->
-    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="logo-swan">
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M12 3C10 3 8 4.5 7.5 6.5C7 8.5 8 10 9 11C10 12 10 13 9.5 14.5C9 16 7.5 17 6 17.5C5 17.8 4 17.5 3.5 18C3 18.5 3.5 19.5 5 19.5C7 19.5 9.5 18.5 11 17C12 16 12.5 15 13.5 14.5C15 13.5 17 13.5 18.5 12.5C20 11.5 21 9.5 20.5 7.5C20 5.5 18 4 16 3.5C14.8 3.2 13.3 3 12 3Z" stroke="#C9A84C" stroke-width="1" fill="none"/>
       <path d="M9.5 14.5C9 15.5 8 16.5 7 17C6 17.5 5 17.5 4.5 18C4 18.5 4.5 19.5 6 19.5C8 19.5 10.5 19 12 18C13.5 17 14 16 14 14.5" stroke="#C9A84C" stroke-width=".8" fill="none"/>
     </svg>
@@ -531,9 +439,7 @@
   <div class="hero-bg"></div>
   <div class="hero-content">
     <div class="hero-eyebrow">Luxury Concierge &amp; Lifestyle</div>
-    <h1 class="hero-title">
-      <em>Luxury</em><br>Privé
-    </h1>
+    <h1 class="hero-title"><em>Luxury</em><br>Privé</h1>
     <div class="hero-title-sub">PRIVÉ</div>
     <div class="hero-divider">
       <span></span>
@@ -554,28 +460,16 @@
   </div>
 </section>
 
-<!-- STATS BAR -->
+<!-- STATS -->
 <div id="brand">
   <div class="brand-inner">
-    <div class="brand-stat reveal">
-      <div class="num">12+</div>
-      <div class="label">Years of Excellence</div>
-    </div>
+    <div class="brand-stat reveal"><div class="num">12+</div><div class="label">Years of Excellence</div></div>
     <div class="brand-sep"></div>
-    <div class="brand-stat reveal reveal-delay-1">
-      <div class="num">340+</div>
-      <div class="label">Elite Clients Served</div>
-    </div>
+    <div class="brand-stat reveal reveal-delay-1"><div class="num">340+</div><div class="label">Elite Clients Served</div></div>
     <div class="brand-sep"></div>
-    <div class="brand-stat reveal reveal-delay-2">
-      <div class="num">18</div>
-      <div class="label">European Destinations</div>
-    </div>
+    <div class="brand-stat reveal reveal-delay-2"><div class="num">18</div><div class="label">European Destinations</div></div>
     <div class="brand-sep"></div>
-    <div class="brand-stat reveal reveal-delay-3">
-      <div class="num">24/7</div>
-      <div class="label">Concierge Availability</div>
-    </div>
+    <div class="brand-stat reveal reveal-delay-3"><div class="num">24/7</div><div class="label">Concierge Availability</div></div>
   </div>
 </div>
 
@@ -584,64 +478,45 @@
   <div class="section-label reveal">Our Expertise</div>
   <h2 class="section-title reveal"><em>Bespoke</em> Services<br>Crafted for You</h2>
   <p class="section-sub reveal">Each service is tailored with uncompromising precision, delivering an experience that transcends expectation.</p>
-
   <div class="services-grid">
-    <!-- 1 -->
     <div class="service-card reveal">
       <div class="service-num">01</div>
-      <div class="service-icon">
-        <svg viewBox="0 0 32 32"><path d="M16 4 C10 4 5 9 5 15 C5 22 12 28 16 28 C20 28 27 22 27 15 C27 9 22 4 16 4Z"/><path d="M16 8 L16 16 L21 19"/><path d="M8 12 L5 12 M24 12 L27 12 M16 4 L16 7"/></svg>
-      </div>
+      <div class="service-icon"><svg viewBox="0 0 32 32"><path d="M16 4 C10 4 5 9 5 15 C5 22 12 28 16 28 C20 28 27 22 27 15 C27 9 22 4 16 4Z"/><path d="M16 8 L16 16 L21 19"/><path d="M8 12 L5 12 M24 12 L27 12 M16 4 L16 7"/></svg></div>
       <div class="service-name">Luxury Concierge</div>
       <div class="service-desc">Around-the-clock personal assistance for every request — restaurant reservations, private events, exclusive access, and anything your lifestyle demands.</div>
       <div class="service-arrow">→</div>
     </div>
-    <!-- 2 -->
     <div class="service-card reveal reveal-delay-1">
       <div class="service-num">02</div>
-      <div class="service-icon">
-        <svg viewBox="0 0 32 32"><rect x="4" y="10" width="24" height="18" rx="1"/><path d="M10 10 L10 7 C10 5.3 11.3 4 13 4 L19 4 C20.7 4 22 5.3 22 7 L22 10"/><path d="M4 16 L28 16"/></svg>
-      </div>
+      <div class="service-icon"><svg viewBox="0 0 32 32"><rect x="4" y="10" width="24" height="18" rx="1"/><path d="M10 10 L10 7 C10 5.3 11.3 4 13 4 L19 4 C20.7 4 22 5.3 22 7 L22 10"/><path d="M4 16 L28 16"/></svg></div>
       <div class="service-name">Villa & Property Management</div>
       <div class="service-desc">Complete management of luxury residences and villas across Europe — maintenance, staffing, guest preparation, and year-round care.</div>
       <div class="service-arrow">→</div>
     </div>
-    <!-- 3 -->
     <div class="service-card reveal reveal-delay-2">
       <div class="service-num">03</div>
-      <div class="service-icon">
-        <svg viewBox="0 0 32 32"><path d="M16 4 L20 12 L28 13 L22 19 L23.5 27 L16 23 L8.5 27 L10 19 L4 13 L12 12 Z"/></svg>
-      </div>
+      <div class="service-icon"><svg viewBox="0 0 32 32"><path d="M16 4 L20 12 L28 13 L22 19 L23.5 27 L16 23 L8.5 27 L10 19 L4 13 L12 12 Z"/></svg></div>
       <div class="service-name">Guest Experience Design</div>
       <div class="service-desc">Curated welcome experiences, bespoke itineraries, floral arrangements, champagne arrivals, and immersive local journeys crafted for each guest.</div>
       <div class="service-arrow">→</div>
     </div>
-    <!-- 4 -->
     <div class="service-card reveal">
       <div class="service-num">04</div>
-      <div class="service-icon">
-        <svg viewBox="0 0 32 32"><path d="M6 26 L6 12 L16 4 L26 12 L26 26"/><path d="M12 26 L12 18 L20 18 L20 26"/><path d="M2 26 L30 26"/></svg>
-      </div>
+      <div class="service-icon"><svg viewBox="0 0 32 32"><path d="M6 26 L6 12 L16 4 L26 12 L26 26"/><path d="M12 26 L12 18 L20 18 L20 26"/><path d="M2 26 L30 26"/></svg></div>
       <div class="service-name">Premium Travel</div>
       <div class="service-desc">Private jet coordination, yacht charters, luxury transfers, exclusive hotel access, and seamless multi-destination European travel planning.</div>
       <div class="service-arrow">→</div>
     </div>
-    <!-- 5 -->
     <div class="service-card reveal reveal-delay-1">
       <div class="service-num">05</div>
-      <div class="service-icon">
-        <svg viewBox="0 0 32 32"><circle cx="16" cy="12" r="6"/><path d="M6 28 C6 22 10 18 16 18 C22 18 26 22 26 28"/><path d="M22 6 C24 7 26 9 26 12"/></svg>
-      </div>
+      <div class="service-icon"><svg viewBox="0 0 32 32"><circle cx="16" cy="12" r="6"/><path d="M6 28 C6 22 10 18 16 18 C22 18 26 22 26 28"/><path d="M22 6 C24 7 26 9 26 12"/></svg></div>
       <div class="service-name">Executive Support</div>
       <div class="service-desc">Personal assistant services for high-net-worth individuals — scheduling, vendor management, lifestyle administration, and VIP coordination.</div>
       <div class="service-arrow">→</div>
     </div>
-    <!-- 6 -->
     <div class="service-card reveal reveal-delay-2">
       <div class="service-num">06</div>
-      <div class="service-icon">
-        <svg viewBox="0 0 32 32"><path d="M4 8 L28 8 L28 24 L4 24 Z"/><path d="M4 8 L16 17 L28 8"/></svg>
-      </div>
+      <div class="service-icon"><svg viewBox="0 0 32 32"><path d="M4 8 L28 8 L28 24 L4 24 Z"/><path d="M4 8 L16 17 L28 8"/></svg></div>
       <div class="service-name">Events & Celebrations</div>
       <div class="service-desc">Intimate private dinners to grand milestone celebrations — every event orchestrated with elegance, from concept and styling to flawless execution.</div>
       <div class="service-arrow">→</div>
@@ -654,18 +529,21 @@
   <div class="exp-bg"></div>
   <div class="exp-inner">
     <div class="exp-photos reveal">
+      <!-- Luxury suite interior -->
       <div class="exp-photo ep1">
-        <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=600&q=80" alt="Luxury suite">
+        <img src="https://images.pexels.com/photos/1579253/pexels-photo-1579253.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Luxury suite" loading="lazy">
       </div>
+      <!-- Elegant table setting / breakfast -->
       <div class="exp-photo ep2">
-        <img src="https://images.unsplash.com/photo-1596386461350-326ccb383e9f?w=500&q=80" alt="Luxury breakfast">
+        <img src="https://images.pexels.com/photos/2403391/pexels-photo-2403391.jpeg?auto=compress&cs=tinysrgb&w=500" alt="Fine dining" loading="lazy">
         <div class="ep-badge">
           <div class="num">5★</div>
           <div class="txt">Always</div>
         </div>
       </div>
+      <!-- Champagne / celebration -->
       <div class="exp-photo ep3">
-        <img src="https://images.unsplash.com/photo-1549417229-7686ac5595fd?w=400&q=80" alt="Champagne welcome">
+        <img src="https://images.pexels.com/photos/3407777/pexels-photo-3407777.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Champagne welcome" loading="lazy">
       </div>
     </div>
     <div>
@@ -702,22 +580,25 @@
   <div class="section-label reveal">Where We Operate</div>
   <h2 class="section-title reveal">Our <em>Destinations</em></h2>
   <div class="dest-grid">
+    <!-- Milan – Duomo / city luxury -->
     <div class="dest-card reveal">
-      <img src="https://images.unsplash.com/photo-1512149074996-e923ac45be6a?w=500&q=80" alt="Milan">
+      <img src="https://images.pexels.com/photos/2064827/pexels-photo-2064827.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Milan" loading="lazy">
       <div class="dest-overlay">
         <div class="dest-city">Milan</div>
         <div class="dest-tag">Fashion & Lifestyle</div>
       </div>
     </div>
+    <!-- Prague – old town / bridge -->
     <div class="dest-card reveal reveal-delay-1">
-      <img src="https://images.unsplash.com/photo-1541849546-216549ae216d?w=500&q=80" alt="Prague">
+      <img src="https://images.pexels.com/photos/2346216/pexels-photo-2346216.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Prague" loading="lazy">
       <div class="dest-overlay">
         <div class="dest-city">Prague</div>
         <div class="dest-tag">Culture & Heritage</div>
       </div>
     </div>
-    <div class="dest-card reveal reveal-delay-2" style="grid-column: span 2;">
-      <img src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=900&q=80" alt="Europe" style="height:100%; object-position: center 40%;">
+    <!-- Europe wide – scenic coastline / landscape -->
+    <div class="dest-card wide reveal reveal-delay-2">
+      <img src="https://images.pexels.com/photos/1285625/pexels-photo-1285625.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Europe" style="object-position: center 40%;" loading="lazy">
       <div class="dest-overlay">
         <div class="dest-city">Pan-European</div>
         <div class="dest-tag">Anywhere Across Europe</div>
@@ -729,7 +610,7 @@
 <!-- TESTIMONIALS -->
 <section id="testimonials">
   <div class="testi-bg"></div>
-  <div class="section-label" style="justify-content:center; margin-bottom:50px;" class="reveal">Client Voices</div>
+  <div class="section-label" style="justify-content:center; margin-bottom:50px;">Client Voices</div>
   <div id="testiContent">
     <p class="testi-quote reveal">
       <span class="testi-mark">"</span>
@@ -879,7 +760,7 @@ function changeTesti(i) {
   const a = document.querySelector('.testi-author');
   q.style.opacity = '0'; a.style.opacity = '0';
   setTimeout(() => {
-    q.innerHTML = `<span class="testi-mark">"</span>${testis[i].quote}<span class="testi-mark">"</span>`;
+    q.innerHTML = '<span class="testi-mark">"</span>' + testis[i].quote + '<span class="testi-mark">"</span>';
     a.textContent = testis[i].author;
     q.style.opacity = '1'; a.style.opacity = '1';
   }, 300);
@@ -899,17 +780,14 @@ async function handleSubmit(e) {
   btn.classList.add('loading');
   const form = e.target;
   const data = new FormData(form);
-  const name = `${data.get('first_name')} ${data.get('last_name')}`;
+  const name = data.get('first_name') + ' ' + data.get('last_name');
   const email = data.get('email');
   const service = data.get('service');
   const message = data.get('message');
-  const subject = encodeURIComponent(`Luxury Privé Enquiry — ${service}`);
-  const body = encodeURIComponent(
-    `New Enquiry from: ${name}\nEmail: ${email}\nService: ${service}\n\nMessage:\n${message}`
-  );
-  // Open mailto
+  const subject = encodeURIComponent('Luxury Privé Enquiry — ' + service);
+  const body = encodeURIComponent('New Enquiry from: ' + name + '\nEmail: ' + email + '\nService: ' + service + '\n\nMessage:\n' + message);
   setTimeout(() => {
-    window.location.href = `mailto:concierge.luxuryprive@gmail.com?subject=${subject}&body=${body}`;
+    window.location.href = 'mailto:concierge.luxuryprive@gmail.com?subject=' + subject + '&body=' + body;
     btn.textContent = 'Send Enquiry';
     btn.classList.remove('loading');
     document.getElementById('formSuccess').classList.add('show');
