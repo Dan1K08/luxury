@@ -12,7 +12,7 @@
 <meta property="og:url" content="https://dan1k08.github.io/luxury/">
 <meta property="og:title" content="Luxury Privé — Elite Concierge & Lifestyle Management">
 <meta property="og:description" content="Elite concierge, villa management & lifestyle curation across Europe's most coveted destinations. Every detail, flawlessly arranged.">
-<meta property="og:image" content="https://dan1k08.github.io/luxury/preview.jpg">
+<meta property="og:image" content="images/milan_duomo.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 
@@ -20,9 +20,9 @@
 <meta name="twitter:url" content="https://dan1k08.github.io/luxury/">
 <meta name="twitter:title" content="Luxury Privé — Elite Concierge & Lifestyle Management">
 <meta name="twitter:description" content="Elite concierge, villa management & lifestyle curation across Europe's most coveted destinations. Every detail, flawlessly arranged.">
-<meta name="twitter:image" content="https://dan1k08.github.io/luxury/preview.jpg">
+<meta name="twitter:image" content="images/milan_duomo.jpg">
 
-<link rel="icon" type="image/jpeg" href="https://dan1k08.github.io/luxury/preview.jpg">
+<link rel="icon" type="image/jpeg" href="images/cloche_service.jpg">
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
 <script>
@@ -125,15 +125,16 @@
   }
   .hero-photo-grid {
     position: absolute; inset: 0; z-index: 0;
-    display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2px; opacity: .22;
+    display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2px; opacity: .25;
   }
   .hero-photo-grid div {
-    background-size: cover; background-position: center;
-    filter: grayscale(20%) contrast(1.1);
+    background-size: cover;
+    filter: grayscale(15%) contrast(1.15) brightness(0.9);
   }
-  .hp1 { background-image: url('https://images.pexels.com/photos/1743229/pexels-photo-1743229.jpeg?auto=compress&cs=tinysrgb&w=800'); }
-  .hp2 { background-image: url('https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg?auto=compress&cs=tinysrgb&w=800'); }
-  .hp3 { background-image: url('https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg?auto=compress&cs=tinysrgb&w=800'); }
+  /* Идеальное позиционирование для коллажа первого экрана */
+  .hp1 { background-image: url('images/butler_umbrella.jpg'); background-position: center center; }
+  .hp2 { background-image: url('images/milan_galleria.jpg'); background-position: center top; }
+  .hp3 { background-image: url('images/prague_sunset.jpg'); background-position: center center; }
 
   .hero-content {
     position: relative; z-index: 2;
@@ -272,12 +273,20 @@
     transition: transform .8s;
   }
   .exp-photo:hover img { transform: scale(1.05); }
-  .ep1 { width: 300px; height: 400px; top: 0; left: 0; z-index: 2; }
-  .ep2 { width: 240px; height: 300px; top: 120px; right: 0; z-index: 3; border: 3px solid rgba(201,168,76,.3); }
-  .ep3 { width: 200px; height: 160px; bottom: 0; left: 60px; z-index: 1; }
+  
+  /* Ювелирное выравнивание акцентных консьерж-фотографий */
+  .ep1 { width: 320px; height: 420px; top: 0; left: 0; z-index: 2; }
+  .ep1 img { object-position: 35% center; } /* Центрируем ресепшн */
+  
+  .ep2 { width: 260px; height: 280px; top: 100px; right: 0; z-index: 3; border: 1px solid rgba(201,168,76,.4); }
+  .ep2 img { object-position: center center; } /* Подача блюда */
+  
+  .ep3 { width: 220px; height: 180px; bottom: 0; left: 60px; z-index: 1; }
+  .ep3 img { object-position: center 25%; } /* Витрина Prada */
+
   .ep-badge {
-    position: absolute; bottom: -20px; right: -20px; z-index: 4;
-    width: 120px; height: 120px; border-radius: 50%;
+    position: absolute; bottom: -15px; right: -15px; z-index: 4;
+    width: 110px; height: 110px; border-radius: 50%;
     background: var(--gold); display: flex; flex-direction: column;
     align-items: center; justify-content: center;
     box-shadow: 0 0 40px rgba(201,168,76,.3);
@@ -292,9 +301,15 @@
   .dest-card.wide { aspect-ratio: 16/7; grid-column: span 2; }
   .dest-card img {
     width: 100%; height: 100%; object-fit: cover;
-    transition: transform .8s; filter: brightness(.6) contrast(1.1);
+    transition: transform .8s; filter: brightness(.65) contrast(1.1);
   }
-  .dest-card:hover img { transform: scale(1.08); }
+  .dest-card:hover img { transform: scale(1.06); }
+  
+  /* Точечное позиционирование достопримечательностей */
+  .dest-milan img { object-position: center 60%; } /* Миланский собор */
+  .dest-prague img { object-position: center center; } /* Панорама Праги */
+  .dest-europe img { object-position: center 38%; } /* Пражский мост сверху */
+
   .dest-overlay {
     position: absolute; inset: 0;
     background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,.85) 100%);
@@ -402,9 +417,9 @@
     .services-grid { grid-template-columns: 1fr 1fr; }
     .dest-grid { grid-template-columns: 1fr 1fr; }
     .exp-inner, .contact-inner { grid-template-columns: 1fr; gap: 60px; }
-    .exp-photos { height: 360px; }
-    .ep1 { width: 220px; height: 280px; }
-    .ep2 { width: 180px; height: 220px; }
+    .exp-photos { height: 460px; width: 100%; max-width: 500px; margin: 0 auto; }
+    .ep1 { width: 260px; height: 340px; }
+    .ep2 { width: 200px; height: 220px; top: 80px; }
     .ep3 { display: none; }
     .ep-badge { width: 90px; height: 90px; }
     .ep-badge .num { font-size: 20px; }
@@ -540,17 +555,17 @@
   <div class="exp-inner">
     <div class="exp-photos reveal">
       <div class="exp-photo ep1">
-        <img src="https://images.pexels.com/photos/1579253/pexels-photo-1579253.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Luxury suite" loading="lazy">
+        <img src="images/hotel_reception.jpg" alt="Premium Concierge Reception" loading="lazy">
       </div>
       <div class="exp-photo ep2">
-        <img src="https://images.pexels.com/photos/2403391/pexels-photo-2403391.jpeg?auto=compress&cs=tinysrgb&w=500" alt="Fine dining" loading="lazy">
+        <img src="images/cloche_service.jpg" alt="Exclusive Fine Dining Experience" loading="lazy">
         <div class="ep-badge">
           <div class="num">5★</div>
           <div class="txt">Always</div>
         </div>
       </div>
       <div class="exp-photo ep3">
-        <img src="https://images.pexels.com/photos/3407777/pexels-photo-3407777.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Champagne welcome" loading="lazy">
+        <img src="images/milan_prada.jpg" alt="Luxury Shopping Curation" loading="lazy">
       </div>
     </div>
     <div>
@@ -586,22 +601,22 @@
   <div class="section-label reveal">Where We Operate</div>
   <h2 class="section-title reveal">Our <em>Destinations</em></h2>
   <div class="dest-grid">
-    <div class="dest-card reveal">
-      <img src="https://images.pexels.com/photos/2064827/pexels-photo-2064827.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Milan" loading="lazy">
+    <div class="dest-card dest-milan reveal">
+      <img src="images/milan_duomo.jpg" alt="Milan" loading="lazy">
       <div class="dest-overlay">
         <div class="dest-city">Milan</div>
         <div class="dest-tag">Fashion & Lifestyle</div>
       </div>
     </div>
-    <div class="dest-card reveal reveal-delay-1">
-      <img src="https://images.pexels.com/photos/2346216/pexels-photo-2346216.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Prague" loading="lazy">
+    <div class="dest-card dest-prague reveal reveal-delay-1">
+      <img src="images/prague_panorama.jpg" alt="Prague" loading="lazy">
       <div class="dest-overlay">
         <div class="dest-city">Prague</div>
         <div class="dest-tag">Culture & Heritage</div>
       </div>
     </div>
-    <div class="dest-card wide reveal reveal-delay-2">
-      <img src="https://images.pexels.com/photos/1285625/pexels-photo-1285625.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Europe" style="object-position: center 40%;" loading="lazy">
+    <div class="dest-card dest-europe wide reveal reveal-delay-2">
+      <img src="images/prague_charles_bridge.jpg" alt="Europe" loading="lazy">
       <div class="dest-overlay">
         <div class="dest-city">Pan-European</div>
         <div class="dest-tag">Anywhere Across Europe</div>
@@ -706,7 +721,7 @@
       <a href="#destinations">Destinations</a>
       <a href="#contact">Contact</a>
     </div>
-    <div class="footer-copy">© 2025 Luxury Privé. All rights reserved.</div>
+    <div class="footer-copy">© 2026 Luxury Privé. All rights reserved.</div>
   </div>
   <div class="footer-divider"></div>
   <div style="text-align:center; font-size:10px; letter-spacing:.3em; color:rgba(201,168,76,.2); text-transform:uppercase;">
@@ -746,7 +761,7 @@ window.addEventListener('scroll', () => {
 // Reveal on scroll
 const observer = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-}, { threshold: 0.12 });
+ scroll}, { threshold: 0.12 });
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
 // Testimonials
