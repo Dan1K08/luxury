@@ -3,23 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Luxury Privé — Elite Concierge & Lifestyle Management</title>
+<title>Luxury Privé — Boutique Concierge & Lifestyle Coordination</title>
 
-<meta name="description" content="Elite concierge, villa management & lifestyle curation across Europe's most coveted destinations. Every detail, flawlessly arranged.">
-<meta name="keywords" content="Luxury Concierge, Villa Management, Lifestyle, Premium Travel, Milan, Prague, Elite Services">
+<meta name="description" content="Personalized concierge, travel and lifestyle coordination for private clients, families and executives across Europe.">
+<meta name="keywords" content="Luxury Concierge, Lifestyle Coordination, Premium Travel, Milan, Prague, Elite Services">
 
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://dan1k08.github.io/luxury/">
-<meta property="og:title" content="Luxury Privé — Elite Concierge & Lifestyle Management">
-<meta property="og:description" content="Elite concierge, villa management & lifestyle curation across Europe's most coveted destinations. Every detail, flawlessly arranged.">
+<meta property="og:title" content="Luxury Privé — Boutique Concierge & Lifestyle Coordination">
+<meta property="og:description" content="Personalized concierge, travel and lifestyle coordination for private clients, families and executives across Europe.">
 <meta property="og:image" content="images/milan_duomo.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:url" content="https://dan1k08.github.io/luxury/">
-<meta name="twitter:title" content="Luxury Privé — Elite Concierge & Lifestyle Management">
-<meta name="twitter:description" content="Elite concierge, villa management & lifestyle curation across Europe's most coveted destinations. Every detail, flawlessly arranged.">
+<meta name="twitter:title" content="Luxury Privé — Boutique Concierge & Lifestyle Coordination">
+<meta name="twitter:description" content="Personalized concierge, travel and lifestyle coordination for private clients, families and executives across Europe.">
 <meta name="twitter:image" content="images/milan_duomo.jpg">
 
 <link rel="icon" type="image/jpeg" href="images/cloche_service.jpg">
@@ -131,7 +131,6 @@
     background-size: cover;
     filter: grayscale(15%) contrast(1.15) brightness(0.9);
   }
-  /* Идеальное позиционирование для коллажа первого экрана */
   .hp1 { background-image: url('images/butler_umbrella.jpg'); background-position: center center; }
   .hp2 { background-image: url('images/milan_galleria.jpg'); background-position: center top; }
   .hp3 { background-image: url('images/prague_sunset.jpg'); background-position: center center; }
@@ -159,7 +158,7 @@
   .hero-title em { font-style: italic; color: var(--gold-light); font-weight: 300; }
   .hero-title-sub {
     font-family: 'Cinzel', serif; font-weight: 400;
-    font-size: clamp(14px, 2vw, 22px); letter-spacing: .5em;
+    font-size: clamp(12px, 1.6vw, 18px); letter-spacing: .4em;
     color: var(--gold); margin-bottom: 32px;
     opacity: 0; animation: fadeUp .9s .55s forwards;
   }
@@ -173,7 +172,7 @@
   .hero-divider svg { width: 10px; height: 10px; fill: var(--gold); }
   .hero-desc {
     font-size: 14px; line-height: 1.9; letter-spacing: .06em;
-    color: rgba(249,245,238,.55); max-width: 560px; margin: 0 auto 48px;
+    color: rgba(249,245,238,.65); max-width: 620px; margin: 0 auto 48px;
     opacity: 0; animation: fadeUp .8s .75s forwards;
   }
   .hero-btns {
@@ -225,7 +224,7 @@
   .section-label::after { content: ''; display: block; width: 40px; height: 1px; background: var(--gold); opacity: .4; }
   .section-title { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(36px, 4vw, 58px); line-height: 1.1; color: var(--white); margin-bottom: 20px; }
   .section-title em { font-style: italic; color: var(--gold-light); }
-  .section-sub { font-size: 13px; letter-spacing: .05em; line-height: 1.9; color: rgba(249,245,238,.45); max-width: 460px; margin-bottom: 70px; }
+  .section-sub { font-size: 13px; letter-spacing: .05em; line-height: 1.9; color: rgba(249,245,238,.45); max-width: 480px; margin-bottom: 70px; }
   .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
   .service-card {
     position: relative; overflow: hidden;
@@ -253,7 +252,15 @@
   }
   .service-card:hover .service-arrow { opacity: 1; transform: translateX(0); }
 
-  /* ── EXPERIENCE ── */
+  /* ── HOW WE WORK ── */
+  #process { padding: 100px 60px; background: var(--dark); border-top: 1px solid rgba(201,168,76,.08); }
+  .process-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; margin-top: 50px; }
+  .process-step { position: relative; padding: 24px; background: var(--dark2); border: 1px solid rgba(201,168,76,.06); }
+  .process-num { font-family: 'Cormorant Garamond', serif; font-size: 24px; color: var(--gold); margin-bottom: 12px; }
+  .process-title { font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: .15em; color: var(--white); margin-bottom: 8px; }
+  .process-desc { font-size: 11px; line-height: 1.6; color: rgba(249,245,238,.4); }
+
+  /* ── EXPERIENCE / ABOUT ── */
   #experience { padding: 140px 60px; background: var(--dark); position: relative; overflow: hidden; }
   .exp-bg {
     position: absolute; right: -200px; top: -100px;
@@ -273,16 +280,12 @@
     transition: transform .8s;
   }
   .exp-photo:hover img { transform: scale(1.05); }
-  
-  /* Ювелирное выравнивание акцентных консьерж-фотографий */
   .ep1 { width: 320px; height: 420px; top: 0; left: 0; z-index: 2; }
-  .ep1 img { object-position: 35% center; } /* Центрируем ресепшн */
-  
+  .ep1 img { object-position: 35% center; }
   .ep2 { width: 260px; height: 280px; top: 100px; right: 0; z-index: 3; border: 1px solid rgba(201,168,76,.4); }
-  .ep2 img { object-position: center center; } /* Подача блюда */
-  
+  .ep2 img { object-position: center center; }
   .ep3 { width: 220px; height: 180px; bottom: 0; left: 60px; z-index: 1; }
-  .ep3 img { object-position: center 25%; } /* Витрина Prada */
+  .ep3 img { object-position: center 25%; }
 
   .ep-badge {
     position: absolute; bottom: -15px; right: -15px; z-index: 4;
@@ -304,11 +307,9 @@
     transition: transform .8s; filter: brightness(.65) contrast(1.1);
   }
   .dest-card:hover img { transform: scale(1.06); }
-  
-  /* Точечное позиционирование достопримечательностей */
-  .dest-milan img { object-position: center 60%; } /* Миланский собор */
-  .dest-prague img { object-position: center center; } /* Панорама Праги */
-  .dest-europe img { object-position: center 38%; } /* Пражский мост сверху */
+  .dest-milan img { object-position: center 60%; }
+  .dest-prague img { object-position: center center; }
+  .dest-europe img { object-position: center 38%; }
 
   .dest-overlay {
     position: absolute; inset: 0;
@@ -397,6 +398,11 @@
   .footer-links a { font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: rgba(249,245,238,.3); text-decoration: none; transition: color .3s; }
   .footer-links a:hover { color: var(--gold); }
   .footer-copy { font-size: 11px; color: rgba(249,245,238,.2); letter-spacing: .05em; }
+  .footer-legal-notice {
+    font-size: 11px; line-height: 1.8; color: rgba(249,245,238,.35);
+    max-width: 900px; margin: 30px auto 0; text-align: center;
+    border-top: 1px solid rgba(201,168,76,.06); padding-top: 24px;
+  }
   .footer-divider { width: 100%; height: 1px; background: rgba(201,168,76,.08); margin: 30px 0 20px; }
 
   /* ── ANIMATIONS ── */
@@ -413,8 +419,9 @@
     nav { padding: 24px 30px; }
     nav.scrolled { padding: 16px 30px; }
     .nav-links { display: none; }
-    #services, #destinations, #contact, #experience, #testimonials, #brand { padding-left: 30px; padding-right: 30px; }
+    #services, #process, #destinations, #contact, #experience, #testimonials, #brand { padding-left: 30px; padding-right: 30px; }
     .services-grid { grid-template-columns: 1fr 1fr; }
+    .process-grid { grid-template-columns: repeat(2, 1fr); }
     .dest-grid { grid-template-columns: 1fr 1fr; }
     .exp-inner, .contact-inner { grid-template-columns: 1fr; gap: 60px; }
     .exp-photos { height: 460px; width: 100%; max-width: 500px; margin: 0 auto; }
@@ -426,6 +433,7 @@
   }
   @media (max-width: 600px) {
     .services-grid { grid-template-columns: 1fr; }
+    .process-grid { grid-template-columns: 1fr; }
     .dest-grid { grid-template-columns: 1fr; }
     .dest-card.wide { grid-column: span 1; aspect-ratio: 3/2; }
     .form-row { grid-template-columns: 1fr; }
@@ -449,10 +457,10 @@
     LUXURY PRIVÉ
   </a>
   <ul class="nav-links">
+    <li><a href="#about">About</a></li>
     <li><a href="#services">Services</a></li>
-    <li><a href="#experience">Experience</a></li>
+    <li><a href="#process">How We Work</a></li>
     <li><a href="#destinations">Destinations</a></li>
-    <li><a href="#testimonials">Clients</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
   <a href="#contact" class="nav-cta">Enquire Now</a>
@@ -466,16 +474,16 @@
   </div>
   <div class="hero-bg"></div>
   <div class="hero-content">
-    <div class="hero-eyebrow">Luxury Concierge &amp; Lifestyle</div>
+    <div class="hero-eyebrow">Boutique Concierge &amp; Lifestyle Coordination</div>
     <h1 class="hero-title"><em>Luxury</em><br>Privé</h1>
-    <div class="hero-title-sub">PRIVÉ</div>
+    <div class="hero-title-sub">BOUTIQUE CONCIERGE &amp; LIFESTYLE COORDINATION</div>
     <div class="hero-divider">
       <span></span>
       <svg viewBox="0 0 10 10"><path d="M5 0 L10 5 L5 10 L0 5 Z" fill="#C9A84C"/></svg>
       <span></span>
     </div>
     <p class="hero-desc">
-      Elite concierge &amp; lifestyle curation across Europe's most coveted destinations. Every detail, flawlessly arranged.
+      Personalized concierge, travel and lifestyle coordination for private clients, families and executives across Europe. Discreet support through a trusted network of independent partners.
     </p>
     <div class="hero-btns">
       <a href="#contact" class="btn-primary">Request Our Services</a>
@@ -492,65 +500,98 @@
   <div class="brand-inner">
     <div class="brand-stat reveal"><div class="num">12+</div><div class="label">Years of Excellence</div></div>
     <div class="brand-sep"></div>
-    <div class="brand-stat reveal reveal-delay-1"><div class="num">340+</div><div class="label">Elite Clients Served</div></div>
+    <div class="brand-stat reveal reveal-delay-1"><div class="num">340+</div><div class="label">Private Clients</div></div>
     <div class="brand-sep"></div>
     <div class="brand-stat reveal reveal-delay-2"><div class="num">18</div><div class="label">European Destinations</div></div>
     <div class="brand-sep"></div>
-    <div class="brand-stat reveal reveal-delay-3"><div class="num">24/7</div><div class="label">Concierge Availability</div></div>
+    <div class="brand-stat reveal reveal-delay-3"><div class="num">24/7</div><div class="label">Personal Assistance</div></div>
   </div>
 </div>
 
 <section id="services">
   <div class="section-label reveal">Our Expertise</div>
-  <h2 class="section-title reveal"><em>Bespoke</em> Services<br>Crafted for You</h2>
-  <p class="section-sub reveal">Each service is tailored with uncompromising precision, delivering an experience that transcends expectation.</p>
+  <h2 class="section-title reveal"><em>Bespoke</em> Services<br>Tailored for You</h2>
+  <p class="section-sub reveal">Seamlessly curated experiences and ongoing lifestyle management delivered with absolute discretion and precision.</p>
   <div class="services-grid">
     <div class="service-card reveal">
       <div class="service-num">01</div>
       <div class="service-icon"><svg viewBox="0 0 32 32"><path d="M16 4 C10 4 5 9 5 15 C5 22 12 28 16 28 C20 28 27 22 27 15 C27 9 22 4 16 4Z"/><path d="M16 8 L16 16 L21 19"/><path d="M8 12 L5 12 M24 12 L27 12 M16 4 L16 7"/></svg></div>
-      <div class="service-name">Luxury Concierge</div>
-      <div class="service-desc">Around-the-clock personal assistance for every request — restaurant reservations, private events, exclusive access, and anything your lifestyle demands.</div>
+      <div class="service-name">Private Concierge</div>
+      <div class="service-desc">Personal assistance for everyday and extraordinary requests — dedicated to managing your time and fulfilling individual preferences effortlessly.</div>
       <div class="service-arrow">→</div>
     </div>
     <div class="service-card reveal reveal-delay-1">
       <div class="service-num">02</div>
       <div class="service-icon"><svg viewBox="0 0 32 32"><rect x="4" y="10" width="24" height="18" rx="1"/><path d="M10 10 L10 7 C10 5.3 11.3 4 13 4 L19 4 C20.7 4 22 5.3 22 7 L22 10"/><path d="M4 16 L28 16"/></svg></div>
-      <div class="service-name">Elite Concierge</div>
-      <div class="service-desc">We deliver high-end lifestyle management designed for high-net-worth individuals and corporate clients.</div>
+      <div class="service-name">Travel Coordination</div>
+      <div class="service-desc">Planning journeys, bespoke itineraries, and seamless coordination with trusted independent travel, aviation, and charter partners.</div>
       <div class="service-arrow">→</div>
     </div>
     <div class="service-card reveal reveal-delay-2">
       <div class="service-num">03</div>
       <div class="service-icon"><svg viewBox="0 0 32 32"><path d="M16 4 L20 12 L28 13 L22 19 L23.5 27 L16 23 L8.5 27 L10 19 L4 13 L12 12 Z"/></svg></div>
-      <div class="service-name">Guest Experience Design</div>
-      <div class="service-desc">Curated welcome experiences, bespoke itineraries, floral arrangements, champagne arrivals, and immersive local journeys crafted for each guest.</div>
+      <div class="service-name">Private Experiences</div>
+      <div class="service-desc">Private dining arrangements, personal chefs, wellness experiences, celebrations, cultural journeys, and exclusive access tailored for you.</div>
       <div class="service-arrow">→</div>
     </div>
     <div class="service-card reveal">
       <div class="service-num">04</div>
       <div class="service-icon"><svg viewBox="0 0 32 32"><path d="M6 26 L6 12 L16 4 L26 12 L26 26"/><path d="M12 26 L12 18 L20 18 L20 26"/><path d="M2 26 L30 26"/></svg></div>
-      <div class="service-name">Premium Travel</div>
-      <div class="service-desc">Private jet coordination, yacht charters, luxury transfers, exclusive hotel access, and seamless multi-destination European travel planning.</div>
+      <div class="service-name">Executive &amp; Lifestyle Support</div>
+      <div class="service-desc">Priority reservations, detailed research, lifestyle administrative coordination, and dedicated support for executives and family offices.</div>
       <div class="service-arrow">→</div>
     </div>
     <div class="service-card reveal reveal-delay-1">
       <div class="service-num">05</div>
-      <div class="service-icon"><svg viewBox="0 0 32 32"><circle cx="16" cy="12" r="6"/><path d="M6 28 C6 22 10 18 16 18 C22 18 26 22 26 28"/><path d="M22 6 C24 7 26 9 26 12"/></svg></div>
-      <div class="service-name">Executive Support</div>
-      <div class="service-desc">Personal assistant services for high-net-worth individuals — scheduling, vendor management, lifestyle administration, and VIP coordination.</div>
+      <div class="service-icon"><svg viewBox="0 0 32 32"><path d="M4 8 L28 8 L28 24 L4 24 Z"/><path d="M4 8 L16 17 L28 8"/></svg></div>
+      <div class="service-name">Hospitality Consulting</div>
+      <div class="service-desc">Guest experience consulting, lifestyle integration, and strategic introductions for boutique hospitality businesses seeking perfection.</div>
       <div class="service-arrow">→</div>
     </div>
     <div class="service-card reveal reveal-delay-2">
       <div class="service-num">06</div>
-      <div class="service-icon"><svg viewBox="0 0 32 32"><path d="M4 8 L28 8 L28 24 L4 24 Z"/><path d="M4 8 L16 17 L28 8"/></svg></div>
-      <div class="service-name">Events & Celebrations</div>
-      <div class="service-desc">Intimate private dinners to grand milestone celebrations — every event orchestrated with elegance, from concept and styling to flawless execution.</div>
+      <div class="service-icon"><svg viewBox="0 0 32 32"><circle cx="16" cy="12" r="6"/><path d="M6 28 C6 22 10 18 16 18 C22 18 26 22 26 28"/><path d="M22 6 C24 7 26 9 26 12"/></svg></div>
+      <div class="service-name">Event &amp; VIP Coordination</div>
+      <div class="service-desc">From intimate private gatherings to milestone occasions — seamlessly coordinated in alignment with high-end specialists and providers.</div>
       <div class="service-arrow">→</div>
     </div>
   </div>
 </section>
 
+<section id="process">
+  <div class="section-label reveal">Our Methodology</div>
+  <h2 class="section-title reveal">How We <em>Work</em></h2>
+  <div class="process-grid">
+    <div class="process-step reveal">
+      <div class="process-num">01</div>
+      <div class="process-title">Consultation</div>
+      <div class="process-desc">Understanding your unique preferences, lifestyle needs, or specific trip requirements.</div>
+    </div>
+    <div class="process-step reveal reveal-delay-1">
+      <div class="process-num">02</div>
+      <div class="process-title">Planning</div>
+      <div class="process-desc">Structuring a tailored strategy, concept, or itinerary curated exclusively for you.</div>
+    </div>
+    <div class="process-step reveal reveal-delay-2">
+      <div class="process-num">03</div>
+      <div class="process-title">Partner Selection</div>
+      <div class="process-desc">Engaging trusted, verified independent partners and specialists best suited for the task.</div>
+    </div>
+    <div class="process-step reveal reveal-delay-3">
+      <div class="process-num">04</div>
+      <div class="process-title">Coordination</div>
+      <div class="process-desc">Overseeing every detail, communication, and logistical element behind the scenes.</div>
+    </div>
+    <div class="process-step reveal reveal-delay-4">
+      <div class="process-num">05</div>
+      <div class="process-title">Ongoing Support</div>
+      <div class="process-desc">Providing continuous assistance and adaptability to ensure an effortless experience.</div>
+    </div>
+  </div>
+</section>
+
 <section id="experience">
+  <div id="about"></div>
   <div class="exp-bg"></div>
   <div class="exp-inner">
     <div class="exp-photos reveal">
@@ -565,17 +606,17 @@
         </div>
       </div>
       <div class="exp-photo ep3">
-        <img src="images/milan_prada.jpg" alt="Luxury Shopping Curation" loading="lazy">
+        <img src="images/milan_prada.jpg" alt="Luxury Lifestyle Curation" loading="lazy">
       </div>
     </div>
     <div>
-      <div class="section-label reveal">The Privé Difference</div>
-      <h2 class="section-title reveal"><em>Elevating</em><br>Every Moment</h2>
-      <p style="font-size:13.5px; line-height:2; color:rgba(249,245,238,.5); margin-bottom:36px;" class="reveal">
-        We believe luxury is not a product — it is a feeling. Our team anticipates every need before it arises, weaving together the finest properties, experiences, and personal touches into journeys that leave lasting impressions.
+      <div class="section-label reveal">About Luxury Privé</div>
+      <h2 class="section-title reveal"><em>Independent</em><br>Excellence</h2>
+      <p style="font-size:13.5px; line-height:2; color:rgba(249,245,238,.6); margin-bottom:24px;" class="reveal">
+        Luxury Privé is an independent boutique concierge dedicated to helping private clients save time, access trusted professionals and enjoy exceptional experiences.
       </p>
       <p style="font-size:13.5px; line-height:2; color:rgba(249,245,238,.5); margin-bottom:48px;" class="reveal">
-        From a handwritten welcome note to securing a last-minute table at Europe's most sought-after restaurant, Luxury Privé operates with the quiet efficiency that defines true excellence.
+        We carefully coordinate every request through a curated network of independent partners, ensuring discretion, reliability and personal attention at every stage.
       </p>
       <div style="display:flex; gap:40px;" class="reveal">
         <div>
@@ -599,27 +640,27 @@
 
 <section id="destinations">
   <div class="section-label reveal">Where We Operate</div>
-  <h2 class="section-title reveal">Our <em>Destinations</em></h2>
+  <h2 class="section-title reveal">Key <em>Destinations</em></h2>
   <div class="dest-grid">
     <div class="dest-card dest-milan reveal">
       <img src="images/milan_duomo.jpg" alt="Milan" loading="lazy">
       <div class="dest-overlay">
         <div class="dest-city">Milan</div>
-        <div class="dest-tag">Fashion & Lifestyle</div>
+        <div class="dest-tag">Fashion &amp; Lifestyle Hub</div>
       </div>
     </div>
     <div class="dest-card dest-prague reveal reveal-delay-1">
       <img src="images/prague_panorama.jpg" alt="Prague" loading="lazy">
       <div class="dest-overlay">
         <div class="dest-city">Prague</div>
-        <div class="dest-tag">Culture & Heritage</div>
+        <div class="dest-tag">Culture &amp; Central Europe</div>
       </div>
     </div>
     <div class="dest-card dest-europe wide reveal reveal-delay-2">
       <img src="images/prague_charles_bridge.jpg" alt="Europe" loading="lazy">
       <div class="dest-overlay">
-        <div class="dest-city">Pan-European</div>
-        <div class="dest-tag">Anywhere Across Europe</div>
+        <div class="dest-city">Pan-European Network</div>
+        <div class="dest-tag">Coordination Across Major Destinations</div>
       </div>
     </div>
   </div>
@@ -631,7 +672,7 @@
   <div id="testiContent">
     <p class="testi-quote reveal">
       <span class="testi-mark">"</span>
-      Luxury Privé redefined what I believed a concierge service could be. Every detail of our Amalfi stay was arranged with an elegance I have never encountered before.
+      Luxury Privé redefined personal coordination for us. Every single partner introduction and itinerary detail was managed with quiet, impeccable elegance.
       <span class="testi-mark">"</span>
     </p>
     <div class="testi-author reveal">— Alexandra M., Monaco</div>
@@ -647,9 +688,9 @@
   <div class="contact-inner">
     <div class="contact-info">
       <div class="section-label reveal">Get in Touch</div>
-      <h2 class="section-title reveal">Begin Your<br><em>Private</em> Journey</h2>
+      <h2 class="section-title reveal">Begin Your<br><em>Bespoke</em> Inquiry</h2>
       <p style="font-size:13px; line-height:1.9; color:rgba(249,245,238,.45); margin-bottom:52px;" class="reveal">
-        Share your vision with us. Our team will respond within 24 hours to craft a bespoke proposal tailored exclusively for you.
+        Share your requests with us. Our coordination team will respond promptly to discuss how we may assist you.
       </p>
       <div class="contact-detail reveal">
         <div class="cd-label">Email</div>
@@ -657,11 +698,11 @@
       </div>
       <div class="contact-detail reveal">
         <div class="cd-label">Available</div>
-        <div class="cd-value">24 hours · 7 days a week</div>
+        <div class="cd-value">Personal Coordination Support</div>
       </div>
       <div class="contact-detail reveal">
         <div class="cd-label">Bases</div>
-        <div class="cd-value">Milan · Prague · Pan-European</div>
+        <div class="cd-value">Milan · Prague · Pan-European Network</div>
       </div>
     </div>
     <div>
@@ -684,22 +725,22 @@
           <label>Service of Interest</label>
           <select name="service" required>
             <option value="" disabled selected>Select a service</option>
-            <option>Luxury Concierge</option>
-            <option>Villa & Property Management</option>
-            <option>Guest Experience Design</option>
-            <option>Premium Travel</option>
-            <option>Executive Support</option>
-            <option>Events & Celebrations</option>
-            <option>Multiple Services</option>
+            <option>Private Concierge</option>
+            <option>Travel Coordination</option>
+            <option>Private Experiences</option>
+            <option>Executive &amp; Lifestyle Support</option>
+            <option>Hospitality Consulting</option>
+            <option>Event &amp; VIP Coordination</option>
+            <option>General Lifestyle Inquiry</option>
           </select>
         </div>
         <div class="form-group">
           <label>Your Request</label>
-          <textarea placeholder="Tell us about your vision, requirements, or upcoming trip..." name="message" required></textarea>
+          <textarea placeholder="Tell us about your requirements, trip timing, or lifestyle preferences..." name="message" required></textarea>
         </div>
         <button type="submit" class="form-submit" id="submitBtn">Send Enquiry</button>
         <div class="form-success" id="formSuccess">
-          ✦ &nbsp; Thank you. We will be in touch within 24 hours.
+          ✦ &nbsp; Thank you. We will be in touch shortly.
         </div>
       </form>
     </div>
@@ -716,16 +757,21 @@
     </div>
     <div class="footer-links">
       <a href="privacy.html">Privacy Policy</a>
+      <a href="#about">About</a>
       <a href="#services">Services</a>
-      <a href="#experience">Experience</a>
-      <a href="#destinations">Destinations</a>
+      <a href="#process">How We Work</a>
       <a href="#contact">Contact</a>
     </div>
     <div class="footer-copy">© 2026 Luxury Privé. All rights reserved.</div>
   </div>
+
+  <div class="footer-legal-notice">
+    Luxury Privé acts as an independent concierge and coordination service. Accommodation, transportation, aviation, yachting, dining, wellness and other specialist services are provided by independent third-party suppliers unless expressly agreed otherwise. Luxury Privé coordinates these services on behalf of its clients and may charge a separate concierge or coordination fee.
+  </div>
+
   <div class="footer-divider"></div>
   <div style="text-align:center; font-size:10px; letter-spacing:.3em; color:rgba(201,168,76,.2); text-transform:uppercase;">
-    Crafted for the Discerning Few
+    Boutique Concierge &amp; Lifestyle Coordination
   </div>
 </footer>
 
@@ -741,7 +787,7 @@ document.addEventListener('mousemove', e => {
     cursorRing.style.top = e.clientY + 'px';
   }, 60);
 });
-document.querySelectorAll('a, button, .dest-card, .service-card').forEach(el => {
+document.querySelectorAll('a, button, .dest-card, .service-card, .process-step').forEach(el => {
   el.addEventListener('mouseenter', () => {
     cursor.style.width = '14px'; cursor.style.height = '14px';
     cursorRing.style.width = '50px'; cursorRing.style.height = '50px';
@@ -761,14 +807,14 @@ window.addEventListener('scroll', () => {
 // Reveal on scroll
 const observer = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
- scroll}, { threshold: 0.12 });
+}, { threshold: 0.12 });
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
 // Testimonials
 const testis = [
-  { quote: "Luxury Privé redefined what I believed a concierge service could be. Every detail of our Amalfi stay was arranged with an elegance I have never encountered before.", author: "— Alexandra M., Monaco" },
-  { quote: "From our private villa in Prague to an impromptu champagne dinner on the terrace — Luxury Privé made every moment feel effortless and utterly extraordinary.", author: "— James R., London" },
-  { quote: "Their attention to detail is unmatched. A single call, and everything was handled — flowers, transfers, private chef, even a surprise anniversary setup.", author: "— Nadia V., Dubai" }
+  { quote: "Luxury Privé redefined personal coordination for us. Every single partner introduction and itinerary detail was managed with quiet, impeccable elegance.", author: "— Alexandra M., Monaco" },
+  { quote: "Having Luxury Privé handle our private dining and travel arrangements gave us complete peace of mind. Exceptional attention to detail throughout.", author: "— James R., London" },
+  { quote: "Their discretion and execution are flawless. A single inquiry, and our partner arrangements for travel and private chef were seamlessly coordinated.", author: "— Nadia V., Dubai" }
 ];
 function changeTesti(i) {
   const q = document.querySelector('.testi-quote');
