@@ -110,16 +110,32 @@
   #hero {
     min-height: 100vh; display: flex; flex-direction: column;
     align-items: center; justify-content: center; text-align: center;
-    padding: 120px 20px 60px; background: radial-gradient(circle at center, #181510 0%, var(--black) 70%);
+    padding: 140px 20px 80px; background: radial-gradient(circle at center, #181510 0%, var(--black) 75%);
   }
   .hero-logo-img { 
-    width: 220px; height: 220px; border-radius: 50%; object-fit: cover; margin-bottom: 24px;
-    box-shadow: 0 0 30px rgba(201, 168, 76, 0.15);
+    width: min(85vw, 650px);
+    height: auto;
+    object-fit: contain;
+    border-radius: 0;
+    margin-bottom: 32px;
+    filter: drop-shadow(0 0 25px rgba(201, 168, 76, 0.2));
     transition: transform 0.5s ease;
   }
   .hero-logo-img:hover { transform: scale(1.02); }
-  .hero-subtitle { font-size: 11px; letter-spacing: .4em; color: var(--gold); text-transform: uppercase; margin-top: 16px; }
-  .hero-tagline { font-size: 13px; letter-spacing: .15em; color: rgba(249,245,238,.6); margin-top: 12px; }
+  .hero-subtitle { 
+    font-size: 15px; 
+    letter-spacing: .35em; 
+    color: var(--gold); 
+    text-transform: uppercase; 
+    margin-top: 20px; 
+    line-height: 1.6;
+  }
+  .hero-tagline { 
+    font-size: 18px; 
+    letter-spacing: .18em; 
+    color: rgba(249,245,238,.75); 
+    margin-top: 16px; 
+  }
 
   /* ── SECTIONS GENERAL ── */
   section { padding: 100px 60px; border-top: 1px solid var(--border-gold); }
@@ -314,6 +330,8 @@
     .about-grid, .core-grid, .contact-inner, .form-row { grid-template-columns: 1fr; }
     .cards-grid-3, .cards-grid-2, .process-row { grid-template-columns: 1fr; }
     .testimonial-text { font-size: 20px; }
+    .hero-subtitle { font-size: 12px; letter-spacing: .25em; }
+    .hero-tagline { font-size: 15px; }
   }
 </style>
 </head>
