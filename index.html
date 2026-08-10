@@ -6,6 +6,17 @@
 <title>Luxury Privé — Boutique Concierge & Lifestyle Coordination</title>
 
 <meta name="description" content="Personalized concierge, travel and lifestyle coordination for private clients across Europe. Worldwide by request.">
+ <!-- Иконка сайта (Favicon) для браузера и поисковиков -->
+<link rel="icon" type="image/png" href="preview.png">
+<link rel="apple-touch-icon" href="preview.png">
+
+<!-- Open Graph теги для соцсетей и мессенджеров (Instagram, Telegram, WhatsApp, FB) -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Luxury Privé — Boutique Concierge & Lifestyle Coordination">
+<meta property="og:description" content="Personalized concierge, travel and lifestyle coordination for private clients across Europe. Worldwide by request.">
+<meta property="og:image" content="https://github.com/Dan1K08/luxury/preview.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -110,20 +121,21 @@
   #hero {
     min-height: 100vh; display: flex; flex-direction: column;
     align-items: center; justify-content: center; text-align: center;
-    padding: 140px 20px 80px; background: radial-gradient(circle at center, #181510 0%, var(--black) 75%);
+    padding: 120px 20px 60px; background: radial-gradient(circle at center, #181510 0%, var(--black) 75%);
   }
   .hero-logo-img { 
-    width: min(85vw, 650px);
+    width: 90vw;
+    max-width: 1100px;
     height: auto;
     object-fit: contain;
     border-radius: 0;
-    margin-bottom: 32px;
-    filter: drop-shadow(0 0 25px rgba(201, 168, 76, 0.2));
+    margin-bottom: 30px;
+    filter: drop-shadow(0 0 35px rgba(201, 168, 76, 0.25));
     transition: transform 0.5s ease;
   }
   .hero-logo-img:hover { transform: scale(1.02); }
   .hero-subtitle { 
-    font-size: 15px; 
+    font-size: 16px; 
     letter-spacing: .35em; 
     color: var(--gold); 
     text-transform: uppercase; 
@@ -131,12 +143,11 @@
     line-height: 1.6;
   }
   .hero-tagline { 
-    font-size: 18px; 
+    font-size: 19px; 
     letter-spacing: .18em; 
     color: rgba(249,245,238,.75); 
     margin-top: 16px; 
   }
-
   /* ── SECTIONS GENERAL ── */
   section { padding: 100px 60px; border-top: 1px solid var(--border-gold); }
   .sec-title {
